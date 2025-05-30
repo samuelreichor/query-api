@@ -29,7 +29,7 @@ export default defineConfig(() => ({
     },
     lib: {
       // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
+      entry: 'src/module.ts',
       name: '@query-api/nuxt',
       fileName: 'index',
       // Change this to the formats you want to support.
@@ -38,7 +38,10 @@ export default defineConfig(() => ({
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: [],
+      external: [
+        '@query-api/vue',
+        '@query-api/js',
+      ],
     },
   },
   test: {
