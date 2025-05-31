@@ -1,6 +1,6 @@
 {
   "name": "@query-api/js",
-  "version": "0.0.2-0",
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "description": "An url builder to make queries from Craft CMS",
@@ -33,7 +33,7 @@
       "default": "./dist/index.js"
     }
   },
-  "dependencies": {
+  "devDependencies": {
     "tslib": "^2.3.0"
   }
 }
