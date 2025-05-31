@@ -1,6 +1,6 @@
 {
   "name": "@query-api/nuxt",
-  "version": "0.0.2-0",
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "description": "Craft CMS Query Builder for Nuxt",
@@ -40,11 +40,11 @@
     "build:tarball": "npm pack"
   },
   "peerDependencies": {
-    "nuxt": ">=3.7.0 || 4.x"
+    "nuxt": ">=3.0.0 || 4.x"
   },
   "dependencies": {
-    "@query-api/vue": "0.0.2-0",
-    "@query-api/js": "0.0.2-0"
+    "@query-api/vue": "*",
+    "@query-api/js": "*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",
