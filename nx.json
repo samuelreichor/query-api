@@ -81,10 +81,38 @@
     "test": {
       "dependsOn": ["^build"]
     },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "build/{projectRoot}"
+      }
+    },
     "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    }
+  },
+  "release": {
+    "changelog": {
+      "version": {
+        "generatorOptions": {
+          "specifierSource": "conventional-commits",
+          "packageRoot": "build/{projectRoot}",
+          "currentVersionResolver": "git-tag",
+          "skipLockFileUpdate": true
+        }
+      },
+      "projectChangelogs": {
+        "renderOptions": {
+          "authors": false
+        }
+      },
+      "workspaceChangelog": {
+        "createRelease": "github",
+        "renderOptions": {
+          "authors": false
+        }
+      }
     }
   },
   "generators": {
