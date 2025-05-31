@@ -2,6 +2,26 @@
   "name": "@query-api/react",
   "version": "0.0.1",
   "type": "module",
+  "license": "MIT",
+  "description": "Craft CMS Query Builder for React",
+  "repository": "https://github.com/samuelreichor/query-api/tree/main/packages/react",
+  "author": "Samuel Reichoer",
+  "bugs": {
+    "url": "https://github.com/samuelreichor/query-api/issues"
+  },
+  "homepage": "https://samuelreichor.at/libraries/react-craftcms",
+  "keywords": [
+    "Craft CMS",
+    "Query Builder",
+    "Query API",
+    "React"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
