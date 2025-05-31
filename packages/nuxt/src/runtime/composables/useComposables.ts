@@ -2,10 +2,10 @@ import { siteDetectionMode, type CraftCmsOptions, type SiteDetectionMode } from 
 import { getPreviewParams } from '@query-api/js'
 import { defu } from 'defu'
 import { getBearerToken, getCurrentSite, getSiteUri } from '../utils/helper'
-import { useRuntimeConfig, useRoute, createError, useRequestURL, useFetch } from '#app'
-import type { UseFetchOptions } from '#app'
-import { computed, unref } from '#imports'
-import type { Ref } from '#imports'
+import { useRuntimeConfig, useRoute, createError, useRequestURL, useFetch } from 'nuxt/app'
+import type { UseFetchOptions } from 'nuxt/app'
+import { computed, unref } from 'vue'
+import type { Ref } from 'vue'
 
 export function useCraftCurrentSite() {
   const { siteMap, siteDetectionMode } = useRuntimeConfig().public.craftcms as Required<CraftCmsOptions>

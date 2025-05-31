@@ -2,9 +2,9 @@ import type { ElementType, ExecutionMethod, QueryBuilder } from '@query-api/js'
 import { buildCraftQueryUrl, getPreviewParams } from '@query-api/js'
 import type { CraftCmsOptions } from '@query-api/vue'
 import { useCraftAuthToken } from './useComposables'
-import { useAsyncData, useRuntimeConfig, useRoute } from '#imports'
-import type { AsyncData, NuxtError } from '#app'
-import type { LocationQuery } from '#vue-router'
+import { useAsyncData, useRuntimeConfig, useRoute } from 'nuxt/app'
+import type { AsyncData, NuxtError } from 'nuxt/app'
+import type { LocationQuery } from 'vue-router'
 
 function fetchFn<ResT>(url: string) {
   const authToken = useCraftAuthToken()

@@ -2,18 +2,47 @@
   "name": "@query-api/nuxt",
   "version": "0.0.1",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-
-
+  "main": "./dist/module.mjs",
+  "types": "./dist/types.d.mts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "development": "./src/module.ts",
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:types && npm run build:transpile",
+    "build:nuxt-module": "nuxt-module-build build",
+    "build:transpile": "npm run build:nuxt-module",
+    "build:types": "tsc -p tsconfig.lib.json",
+    "build:tarball": "npm pack"
+  },
+  "peerDependencies": {
+    "nuxt": ">=3.7.0 || 4.x"
+  },
+  "dependencies": {
+    "@query-api/vue": "0.0.1",
+    "@query-api/js": "0.0.1"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "^0.8.4",
+    "nuxt": "^3.13.2"
+  },
+  "nx": {
+    "targets": {
+      "build:transpile": {
+        "dependsOn": [
+          "^build:transpile",
+          "^build:types",
+          "build:types"
+        ],
+        "outputs": [
+          "{projectRoot}/build/cjs",
+          "{projectRoot}/build/esm",
+          "{projectRoot}/build/module"
+        ]
+      }
     }
   }
 }
