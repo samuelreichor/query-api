@@ -1,9 +1,9 @@
 import type { AsyncDataOptions } from 'nuxt/app'
 import type { CraftCmsOptions } from '@query-api/vue'
-import { useCraftCurrentSite, useCraftUri } from './useComposables'
 import { useRuntimeConfig, useAsyncData, createError } from 'nuxt/app'
 import { computed } from 'vue'
 import type { Ref } from 'vue'
+import { useCraftCurrentSite, useCraftUri } from './useComposables'
 
 export type MetaTag = { content?: string, name?: string, property?: string }
 export type MetaLink = { href: string, rel: string, hreflang?: string }
