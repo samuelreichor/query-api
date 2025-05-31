@@ -37,7 +37,8 @@
     "build:nuxt-module": "nuxt-module-build build --outDir dist",
     "build:transpile": "npm run build:nuxt-module",
     "build:types": "tsc -p tsconfig.lib.json",
-    "build:tarball": "npm pack"
+    "build:tarball": "npm pack",
+    "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
     "nuxt": ">=3.0.0 || 4.x"

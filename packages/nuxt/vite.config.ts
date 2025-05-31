@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import dts from 'vite-plugin-dts';
-import * as path from 'path';
+import * as path from 'node:path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -14,6 +14,9 @@ export default defineConfig(() => ({
       tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
+  optimizeDeps: {
+    exclude: ['@query-api/vue', '@query-api/js'],
+  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
@@ -39,8 +42,6 @@ export default defineConfig(() => ({
     rollupOptions: {
       // External packages that should not be bundled into your library.
       external: [
-        '@query-api/vue',
-        '@query-api/js',
       ],
     },
   },
@@ -55,4 +56,4 @@ export default defineConfig(() => ({
       provider: 'v8' as const,
     },
   },
-}));
+}))

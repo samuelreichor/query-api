@@ -1,21 +1,14 @@
-import vue from 'eslint-plugin-vue';
-import baseConfig from '../../eslint.config.mjs';
+// @ts-check
+import { createConfigForNuxt } from '@nuxt/eslint-config/flat'
 
-export default [
-  ...baseConfig,
-  ...vue.configs['flat/recommended'],
-  {
-    files: ['**/*.vue'],
-    languageOptions: {
-      parserOptions: {
-        parser: await import('@typescript-eslint/parser'),
-      },
-    },
+// Run `npx @eslint/config-inspector` to inspect the resolved config interactively
+export default createConfigForNuxt({
+  features: {
+    tooling: true,
+    stylistic: true,
   },
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx', '**/*.vue'],
-    rules: {
-      'vue/multi-word-component-names': 'off',
-    },
-  },
-];
+
+})
+  .overrideRules({
+    'vue/multi-word-component-names': 0,
+  })
