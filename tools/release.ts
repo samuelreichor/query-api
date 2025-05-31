@@ -48,6 +48,7 @@ async function copyChangelogFiles() {
 
   for (const pkg of packageDirs) {
     const srcChangelogPath = path.join(packagesDir, pkg, "CHANGELOG.md");
+    console.log(srcChangelogPath)
     const destChangelogPath = path.join(
       buildDir,
       "packages",
