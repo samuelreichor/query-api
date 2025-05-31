@@ -15,8 +15,5 @@
     {
       "path": "./packages/js"
     },
-    {
-      "path": "./packages/js"
-    }
   ]
 }

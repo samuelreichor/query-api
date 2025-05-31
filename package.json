@@ -11,10 +11,12 @@
     "build:vue": "nx build --project vue",
     "test:nuxt": "nx test --project nuxt",
     "lint:nuxt": "nx lint --project nuxt",
-    "build:nuxt": "nx build --project nuxt"
+    "build:nuxt": "nx build --project nuxt",
+    "release": "npx nx run-many --target=build && tsx tools/release.ts"
   },
   "private": true,
   "dependencies": {
+    "fs-extra": "^11.3.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "vue": "^3.5.13"
@@ -38,6 +40,7 @@
     "@swc/helpers": "~0.5.11",
     "@swc/jest": "~0.2.36",
     "@testing-library/react": "16.1.0",
+    "@types/fs-extra": "^11.0.4",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.0.0",
     "@types/react": "19.0.0",
@@ -67,6 +70,7 @@
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
+    "tsx": "^4.19.4",
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.19.0",
     "vite": "^6.0.0",

@@ -1,0 +1,40 @@
+name: publish
+
+# Add manual trigger
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    # prevents this action from running on forks
+    if: github.repository == 'samuelreichor/query-api'
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write #allows to push commits to the repo
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # include tags
+          cache: "npm"
+
+      - name: Install Node.js per package.json
+        uses: actions/setup-node@v4
+        with:
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: config git user
+        run: |
+          git config --global user.name "samuelreichor"
+          git config --global user.email "samuelreichor@gmail.com"
+
+      - name: Release a new package
+        run: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
