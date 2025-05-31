@@ -93,15 +93,15 @@
     }
   },
   "release": {
+    "version": {
+      "specifierSource": "conventional-commits",
+      "manifestRootsToUpdate": ["build/{projectRoot}"],
+      "currentVersionResolver": "git-tag",
+      "versionActionsOptions": {
+        "skipLockFileUpdate": true
+      }
+    },
     "changelog": {
-      "version": {
-        "generatorOptions": {
-          "specifierSource": "conventional-commits",
-          "packageRoot": "build/{projectRoot}",
-          "currentVersionResolver": "git-tag",
-          "skipLockFileUpdate": true
-        }
-      },
       "projectChangelogs": {
         "renderOptions": {
           "authors": false
