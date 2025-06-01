@@ -1,3 +1,10 @@
+## 0.0.3 (2025-06-01)
+
+### 🩹 Fixes
+
+- remove console.log in release.ts script
+  ([81b03f0](https://github.com/samuelreichor/query-api/commit/81b03f0))
+
 ## 0.0.2 (2025-05-31)
 
 ### 🩹 Fixes
