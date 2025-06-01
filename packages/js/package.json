@@ -27,13 +27,16 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
   },
+  "scripts": {
+    "typecheck": "tsc --project tsconfig.json"
+  },
+  "dependencies": {},
   "devDependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "vitest": "^3.0.0"
   }
 }
