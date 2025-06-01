@@ -1,11 +1,9 @@
-import styles from './react.module.css';
-
-export function React() {
+export function Index() {
   return (
-    <div className={styles['container']}>
+    <div>
       <h1>Welcome to React!</h1>
     </div>
-  );
+  )
 }
 
-export default React;
+export default Index

@@ -1,6 +1,6 @@
 {
   "name": "@query-api/react",
-  "version": "0.0.1",
+  "version": "0.0.2-0",
   "type": "module",
   "license": "MIT",
   "description": "Craft CMS Query Builder for React",
@@ -33,5 +33,8 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
+  },
+  "scripts": {
+    "typecheck": "tsc --jsx react --project tsconfig.json"
   }
 }
