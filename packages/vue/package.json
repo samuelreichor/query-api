@@ -35,10 +35,10 @@
   "scripts": {
     "typecheck": "vue-tsc  --project tsconfig.json"
   },
-  "peerDependencies": {
-    "vue": ">=3.0.0"
-  },
   "dependencies": {
     "@query-api/js": "*"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.0"
   }
 }
