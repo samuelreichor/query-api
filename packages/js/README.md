@@ -4,7 +4,7 @@
 	</a>
 	<h1 align="center">@query-api/js</h1>
   <p align="center">
-    Bring the Craft CMS Querybuilder to your favorite JS Framework.
+    Bring the Craft CMS Query Builder to your Favorite JS Framework.
   </p>
   <br />
 </div>
@@ -24,8 +24,10 @@
 ## Install
 
 ```bash
-npm install -D @query-api/js
+npm install @query-api/js
 ```
+
+> [!TIP] > [Documentation](https://samuelreichor/libraries/js-craftcms-api)
 
 ## Features
 
@@ -41,17 +43,17 @@ installed on your Craft CMS instance.
 
 ## Documentation
 
-Visit the [JS Craft CMS API](https://samuelreichor.at/libraries/js-craftcms-api) for all
+Visit the [JS SDK documentation](https://samuelreichor.at/libraries/js-craftcms-api) for all
 documentation, guides and developer resources.
 
 ## Further Resources
 
 - [Craft Query API](https://samuelreichor.at/libraries/craft-query-api): The Craft CMS Plugin, that
   powers this great stuff.
-- [Vue Craft CMS](https://samuelreichor.at/libraries/vue-craftcms): A package to use the query
-  builder in Vue.
-- [Nuxt Craft CMS](https://samuelreichor.at/libraries/nuxt-craftcms): A package to use the query
-  builder in Nuxt.
+- [Vue SDK](https://samuelreichor.at/libraries/vue-craftcms): A package to use the query builder in
+  Vue.
+- [Nuxt SDK](https://samuelreichor.at/libraries/nuxt-craftcms): A package to use the query builder
+  in Nuxt.
 
 ## Support
 

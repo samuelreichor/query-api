@@ -4,28 +4,30 @@
 	</a>
 	<h1 align="center">@query-api/nuxt</h1>
   <p align="center">
-    Write Craft CMS queries in nuxt, like in twig. 🚀🚀
+    Write Craft CMS Queries in Nuxt, like you would in Twig. 🚀🚀
   </p>
   <br />
 </div>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@query-api/nuxt">
-    <img src="https://img.shields.io/npm/v/%40query-api%2nuxt?color=blue" alt="Nuxt Craft CMS latest version" />
+    <img src="https://img.shields.io/npm/v/%40query-api%2Fnuxt?color=blue" alt="Nuxt Craft CMS latest version" />
   </a>
   <a href="https://www.npmjs.com/package/@query-api/nuxt" rel="nofollow">
-    <img src="https://img.shields.io/npm/d18m/%40query-api%2nuxt?color=blue" alt="Nuxt Craft CMS downloads">
+    <img src="https://img.shields.io/npm/d18m/%40query-api%2Fnuxt?color=blue" alt="Nuxt Craft CMS downloads">
   </a>
   <a href="https://www.npmjs.com/package/@query-api/nuxt" rel="nofollow">
-    <img src="https://img.shields.io/npm/l/%40query-api%2nuxt?color=blue" alt="Nuxt Craft CMS license">
+    <img src="https://img.shields.io/npm/l/%40query-api%2Fnuxt?color=blue" alt="Nuxt Craft CMS license">
   </a>
 </p>
 
 ## Install
 
 ```bash
-npm install -D @query-api/nuxt
+npm install @query-api/nuxt
 ```
+
+> [!TIP] > [Documentation](https://samuelreichor/libraries/nuxt-craftcms)
 
 ## Features
 
@@ -49,17 +51,17 @@ instance.
 
 ## Documentation
 
-Visit the [Nuxt Craft CMS](https://samuelreichor.at/libraries/nuxt-craftcms) for all documentation,
-guides and developer resources.
+Visit the [Nuxt SDK documentation](https://samuelreichor.at/libraries/nuxt-craftcms) for all
+documentation, guides and developer resources.
 
 ## Further Resources
 
 - [Craft CMS Plugin](https://samuelreichor.at/libraries/craft-query-api): The Craft CMS Plugin, that
   powers this great stuff.
-- [JS Craft CMS API](https://samuelreichor.at/libraries/js-craftcms-api): The core package of the
-  query builder.
-- [Vue Craft CMS](https://samuelreichor.at/libraries/vue-craftcms): A package to use the query
-  builder in Vue.
+- [JS SDK](https://samuelreichor.at/libraries/js-craftcms-api): The core package of the query
+  builder.
+- [Vue SDK](https://samuelreichor.at/libraries/vue-craftcms): A package to use the query builder in
+  Vue.
 
 ## Support
 

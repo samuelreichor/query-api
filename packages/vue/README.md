@@ -4,7 +4,7 @@
 	</a>
 	<h1 align="center">@query-api/vue</h1>
   <p align="center">
-    Write Craft CMS queries in vue, like in twig. 🚀🚀
+    Write Craft CMS Queries in Vue, like you would in Twig. 🚀🚀
   </p>
   <br />
 </div>
@@ -24,8 +24,10 @@
 ## Install
 
 ```bash
-npm install -D @query-api/vue
+npm install @query-api/vue
 ```
+
+> [!TIP] > [Documentation](https://samuelreichor/libraries/vue-craftcms)
 
 ## Features
 
@@ -46,16 +48,16 @@ instance.
 
 ## Documentation
 
-Visit the [Vue Craft CMS](https://samuelreichor.at/libraries/vue-craftcms) for all documentation,
-guides and developer resources.
+Visit the [Vue SDK documentation](https://samuelreichor.at/libraries/vue-craftcms) for all
+documentation, guides and developer resources.
 
 ## Further Resources
 
 - [Craft CMS Plugin](https://samuelreichor.at/libraries/craft-query-api): The Craft CMS Plugin, that
   powers this great stuff.
-- [JS Craft CMS API](https://samuelreichor.at/libraries/js-craftcms-api): The core package of the
-  query builder.
-- [Nuxt Craft](https://samuelreichor.at/libraries/nuxt-craft): A package to use the query builder in
+- [JS SDK](https://samuelreichor.at/libraries/js-craftcms-api): The core package of the query
+  builder.
+- [Nuxt SDK](https://samuelreichor.at/libraries/nuxt-craft): A package to use the query builder in
   Nuxt.
 
 ## Support
