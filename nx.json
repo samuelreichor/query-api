@@ -7,9 +7,7 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/src/test-setup.[jt]s",
-      "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/test-setup.[jt]s"
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
@@ -24,7 +22,7 @@
         },
         "build": {
           "targetName": "build",
-          "configName": "tsconfig.lib.json",
+          "configName": "tsconfig.json",
           "buildDepsName": "build-deps",
           "watchDepsName": "watch-deps"
         }
@@ -69,17 +67,14 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
     }
   ],
   "targetDefaults": {
-    "test": {
+    "build": {
       "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["build"]
     },
     "nx-release-publish": {
       "options": {
@@ -93,6 +88,7 @@
     }
   },
   "release": {
+    "projects": ["packages/js", "packages/vue", "packages/nuxt"],
     "version": {
       "specifierSource": "conventional-commits",
       "manifestRootsToUpdate": ["build/{projectRoot}"],

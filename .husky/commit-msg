@@ -1,0 +1,27 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+COMMIT_MSG=$(head -1 "$COMMIT_MSG_FILE")
+
+
+if echo "$COMMIT_MSG" | grep -qE "^(fixup!|squash!|amend!) "; then
+    echo "Skipping conventional commit and length checks for special Git commit (fixup!, squash!, amend!)."
+    exit 0
+fi
+
+if ! echo "$COMMIT_MSG" | grep -qE "^(feat|fix|chore|docs|test|style|refactor|perf|build|ci|revert)(\(.+?\))?: .{1,}$"; then
+    echo "Aborting commit. Your commit message is invalid." >&2
+    echo "" >&2
+    echo "It must follow Conventional Commits format (e.g., 'feat: Add new feature' or 'fix(scope): Fix bug')." >&2
+    echo "Allowed types: feat, fix, chore, docs, test, style, refactor, perf, build, ci, revert." >&2
+    exit 1
+fi
+
+if ! echo "$COMMIT_MSG" | grep -qE "^.{1,88}$"; then
+    echo "Aborting commit. Your commit message is too long." >&2
+    echo "" >&2
+    echo "The subject line must be 88 characters or less." >&2
+    exit 1
+fi
+
+exit 0

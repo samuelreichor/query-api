@@ -1,0 +1,87 @@
+name: Bug Report
+description: Create a report to help us improve.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before you send through your bug report, please ensure you have taken these steps first:
+
+          ✅ I‘ve searched the [documentation](https://samuelreichor.at/libraries/).
+          ✅ I‘ve searched open and closed issues.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Which SDK are you using?
+      description: Please specify the exact SDK that you are using.
+      options:
+        - '@query-api/js'
+        - '@query-api/vue'
+        - '@query-api/nuxt'
+        - '@query-api/react'
+    validations:
+      required: true
+  - type: input
+    id: sdk-version
+    attributes:
+      label: SDK Version
+      description: What version of the SDK are you using?
+      placeholder: ex. 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: framework-version
+    attributes:
+      label: Framework Version
+      description:
+        If you're using one of our framework-specific SDKs (`@query-api/nuxt`, for example), what
+        version of the _framework_ are you using?
+      placeholder: ex. React 18.3.0
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Describe the bug
+      description: Describe the bug and what behaviour you expect if the bug is fixed.
+      placeholder: 'I have an issue where...'
+    validations:
+      required: true
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Detail how we can reproduce this issue.
+      value: |
+        1. 
+        2.
+    validations:
+      required: true
+  - type: input
+    id: craft-version
+    attributes:
+      label: Craft CMS version
+      description: What version of Craft CMS you‘re using. **Do not write "latest"**.
+    validations:
+      required: true
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Query API Plugin version
+      description: What version of the query-api plugin you‘re using. **Do not write "latest"**.
+    validations:
+      required: true
+  - type: input
+    id: multi-site
+    attributes:
+      label: Multi-site?
+      description: Whether your install is a multi-site.
+      placeholder: |
+        "Yes" or "No"
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description:
+        Provide any additional information you think might be useful. The more information you
+        provide the easier it‘ll be for use to fix this bug!
+      placeholder: |
+        "I also have X plugin installed..." or "This only happens on production..."

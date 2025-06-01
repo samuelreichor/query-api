@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentations
+    url: https://samuelreichor.at/libraries
+    about: Read the official documentations.
+  - name: Craft Discord
+    url: https://craftcms.com/discord
+    about: Community discussion and support.

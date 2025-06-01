@@ -1,5 +1,16 @@
 # Add files here to ignore them from prettier formatting
-/dist
-/coverage
-/.nx/cache
-/.nx/workspace-data
+dist
+coverage
+node_modules
+build
+.nx
+.vscode
+.git
+.husky
+*.log
+.cache
+tmp
+**/*.min.js
+.nvmrc
+.prettierignore
+LICENSE
