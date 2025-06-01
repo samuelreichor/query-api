@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import dts from 'vite-plugin-dts';
-import * as path from 'path';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import dts from 'vite-plugin-dts'
+import * as path from 'path'
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -11,7 +11,7 @@ export default defineConfig(() => ({
     vue(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+      tsconfigPath: path.join(__dirname, 'tsconfig.json'),
     }),
   ],
   // Uncomment this if you are using workers.
@@ -38,7 +38,7 @@ export default defineConfig(() => ({
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: [],
+      external: ['vue'],
     },
   },
   test: {
@@ -52,4 +52,4 @@ export default defineConfig(() => ({
       provider: 'v8' as const,
     },
   },
-}));
+}))

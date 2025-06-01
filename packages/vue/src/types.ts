@@ -1,49 +1,49 @@
-import type { DefineComponent } from 'vue';
-import { siteDetectionMode } from './index';
+import type { DefineComponent } from 'vue'
+import { siteDetectionMode } from './index'
 
 export type Config = {
   pages: Prettify<
     {
-      [key: string]: Record<string, DefineComponent>;
+      [key: string]: Record<string, DefineComponent>
     } & {
-      Page404?: Record<string, DefineComponent>;
-      Error?: Record<string, DefineComponent>;
+      Page404?: Record<string, DefineComponent>
+      Error?: Record<string, DefineComponent>
     }
-  >;
+  >
   components: {
-    [key: string]: Record<string, DefineComponent>;
-  };
-};
+    [key: string]: Record<string, DefineComponent>
+  }
+}
 
 export type CraftCmsOptions = {
-  baseUrl: string;
-  authToken: string;
-  registerComponents?: boolean;
-  debug?: boolean;
-  enableEntryTypeMapping?: boolean;
-  siteMap?: CraftSites;
-  siteDetectionMode?: SiteDetectionMode;
-};
+  baseUrl: string
+  authToken: string
+  registerComponents?: boolean
+  debug?: boolean
+  enableEntryTypeMapping?: boolean
+  siteMap?: CraftSites
+  siteDetectionMode?: SiteDetectionMode
+}
 
 export type CraftSite = {
-  handle: string;
-  origin: string;
-  path: string;
-  id?: number;
-  label?: string;
-  lang?: string;
-  primary?: boolean;
-};
+  handle: string
+  origin: string
+  path: string
+  id?: number
+  label?: string
+  lang?: string
+  primary?: boolean
+}
 
-export type CraftSites = CraftSite[];
+export type CraftSites = CraftSite[]
 
 export type CraftAreaComponent = {
-  knownKey: string;
-  [key: string]: unknown;
-};
+  knownKey: string
+  [key: string]: unknown
+}
 
-export type SiteDetectionMode = (typeof siteDetectionMode)[keyof typeof siteDetectionMode];
+export type SiteDetectionMode = (typeof siteDetectionMode)[keyof typeof siteDetectionMode]
 
 type Prettify<T> = {
-  [K in keyof T]: T[K];
-} & {};
+  [K in keyof T]: T[K]
+} & {}

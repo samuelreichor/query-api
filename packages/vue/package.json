@@ -32,6 +32,9 @@
       "default": "./dist/index.js"
     }
   },
+  "scripts": {
+    "typecheck": "vue-tsc  --project tsconfig.json"
+  },
   "peerDependencies": {
     "vue": ">=3.0.0"
   },

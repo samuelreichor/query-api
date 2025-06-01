@@ -1,5 +1,5 @@
-import vue from 'eslint-plugin-vue';
-import baseConfig from '../../eslint.config.mjs';
+import vue from 'eslint-plugin-vue'
+import baseConfig from '../../eslint.config.mjs'
 
 export default [
   ...baseConfig,
@@ -18,4 +18,4 @@ export default [
       'vue/multi-word-component-names': 'off',
     },
   },
-];
+]
