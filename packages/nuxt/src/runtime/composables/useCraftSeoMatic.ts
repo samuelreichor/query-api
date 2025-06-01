@@ -5,8 +5,8 @@ import { computed } from 'vue'
 import type { Ref } from 'vue'
 import { useCraftCurrentSite, useCraftUri } from './useComposables'
 
-export type MetaTag = { content?: string, name?: string, property?: string }
-export type MetaLink = { href: string, rel: string, hreflang?: string }
+export type MetaTag = { content?: string; name?: string; property?: string }
+export type MetaLink = { href: string; rel: string; hreflang?: string }
 export type SeoData = {
   MetaTitleContainer: { title?: { title: string } }
   MetaTagContainer: Record<string, MetaTag | MetaTag[]>
@@ -30,12 +30,13 @@ export type TransformedSeoData = {
   jsonLd: Record<string, unknown>
 }
 
-export interface CraftSeoMaticReturn<T> extends Promise<{
-  data: Ref<T | null>
-  error: Ref<Error | null>
-  pending: Ref<boolean>
-  refresh: () => Promise<void>
-}> {
+export interface CraftSeoMaticReturn<T>
+  extends Promise<{
+    data: Ref<T | null>
+    error: Ref<Error | null>
+    pending: Ref<boolean>
+    refresh: () => Promise<void>
+  }> {
   data: Ref<T | null>
   pending: Ref<boolean>
   refresh: () => Promise<void>
@@ -44,14 +45,17 @@ export interface CraftSeoMaticReturn<T> extends Promise<{
 
 export function useCraftSeoMatic<T = TransformedSeoData>(
   url?: string,
-  options: AsyncDataOptions<T> = {}): CraftSeoMaticReturn<T> {
+  options: AsyncDataOptions<T> = {},
+): CraftSeoMaticReturn<T> {
   const config = useRuntimeConfig()
   const currentSite = useCraftCurrentSite()
   const currentUri = useCraftUri()
 
   const transformFunction = (seoMaticData: SeoData): TransformedSeoData | undefined => {
     if (!seoMaticData || typeof seoMaticData !== 'object') {
-      console.error('Transformation of SEOmatic data failed, please verify that the SEOmatic endpoint is working correctly')
+      console.error(
+        'Transformation of SEOmatic data failed, please verify that the SEOmatic endpoint is working correctly',
+      )
       return undefined
     }
     return {
@@ -98,7 +102,7 @@ function generateMetaTags(metaTagContainer: Record<string, MetaTag | MetaTag[]>)
     if (Array.isArray(tag) && tag.length === 0) return []
 
     if (Array.isArray(tag)) {
-      return tag.map(item => ({
+      return tag.map((item) => ({
         hid: `${key}-${item.content ?? ''}`,
         name: item.name ?? undefined,
         property: item.property ?? undefined,
@@ -106,12 +110,14 @@ function generateMetaTags(metaTagContainer: Record<string, MetaTag | MetaTag[]>)
       }))
     }
 
-    return [{
-      hid: key,
-      name: tag.name ?? undefined,
-      property: tag.property ?? undefined,
-      content: tag.content ?? undefined,
-    }]
+    return [
+      {
+        hid: key,
+        name: tag.name ?? undefined,
+        property: tag.property ?? undefined,
+        content: tag.content ?? undefined,
+      },
+    ]
   })
 }
 
@@ -121,17 +127,19 @@ function generateLinkTags(linkTagContainer: Record<string, MetaLink | MetaLink[]
     if (Array.isArray(tag) && tag.length === 0) return []
 
     if (Array.isArray(tag)) {
-      return tag.map(item => ({
+      return tag.map((item) => ({
         rel: item.rel,
         href: item.href,
         hreflang: item.hreflang ?? undefined,
       }))
     }
 
-    return [{
-      rel: tag.rel,
-      href: tag.href,
-      hreflang: tag.hreflang ?? undefined,
-    }]
+    return [
+      {
+        rel: tag.rel,
+        href: tag.href,
+        hreflang: tag.hreflang ?? undefined,
+      },
+    ]
   })
 }

@@ -1,12 +1,27 @@
-import { type CraftSites, type CraftSite, type SiteDetectionMode, siteDetectionMode } from '@query-api/vue'
+import {
+  type CraftSites,
+  type CraftSite,
+  type SiteDetectionMode,
+  siteDetectionMode,
+} from '@query-api/vue'
 import type { Ref } from 'vue'
 
-export function getCurrentSite(siteMap: CraftSites, url: Ref<string>, mode: SiteDetectionMode): CraftSite {
+export function getCurrentSite(
+  siteMap: CraftSites,
+  url: Ref<string>,
+  mode: SiteDetectionMode,
+): CraftSite {
   const sortedSiteMap = getSortedSitesByMatching(siteMap, mode)
-  return sortedSiteMap.find(site => url.value.startsWith(getSiteByMatching(site, mode))) ?? siteMap[0]
+  return (
+    sortedSiteMap.find((site) => url.value.startsWith(getSiteByMatching(site, mode))) ?? siteMap[0]
+  )
 }
 
-export function getSiteUri(url: Ref<string>, currentSite: Ref<CraftSite>, mode: SiteDetectionMode): string {
+export function getSiteUri(
+  url: Ref<string>,
+  currentSite: Ref<CraftSite>,
+  mode: SiteDetectionMode,
+): string {
   const normUrl = normalizeUrl(url.value)
     .split('#')[0] // Remove hash fragment
     .split('?')[0] // Remove query parameters
@@ -18,9 +33,7 @@ export function getSiteUri(url: Ref<string>, currentSite: Ref<CraftSite>, mode: 
 }
 
 export function normalizeUrl(url: string) {
-  return url
-    .replace(/^https?:\/\//, '')
-    .replace(/^www\./, '')
+  return url.replace(/^https?:\/\//, '').replace(/^www\./, '')
 }
 
 export function getSiteByMatching(currentSite: CraftSite, mode: SiteDetectionMode) {

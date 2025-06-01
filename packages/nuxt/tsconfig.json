@@ -1,19 +1,5 @@
 {
   "extends": "./.nuxt/tsconfig.json",
   "files": [],
-  "include": [],
-  "references": [
-    {
-      "path": "../js"
-    },
-    {
-      "path": "../vue"
-    },
-    {
-      "path": "./tsconfig.lib.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    }
-  ]
+  "references": []
 }

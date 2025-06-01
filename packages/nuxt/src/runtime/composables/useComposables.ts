@@ -8,7 +8,8 @@ import type { Ref } from 'vue'
 import { getBearerToken, getCurrentSite, getSiteUri } from '../utils/helper'
 
 export function useCraftCurrentSite() {
-  const { siteMap, siteDetectionMode } = useRuntimeConfig().public.craftcms as Required<CraftCmsOptions>
+  const { siteMap, siteDetectionMode } = useRuntimeConfig().public
+    .craftcms as Required<CraftCmsOptions>
   if (!siteMap || siteMap.length === 0) {
     throw createError({ statusCode: 500, statusMessage: 'Invalid sitemap in app.config.ts' })
   }
@@ -20,7 +21,9 @@ export function useCraftCurrentSite() {
 export function useCraftUri() {
   const { siteDetectionMode } = useRuntimeConfig().public.craftcms as Required<CraftCmsOptions>
   const currentSite = useCraftCurrentSite()
-  return computed(() => getSiteUri(useUrlByMatching(siteDetectionMode), currentSite, siteDetectionMode))
+  return computed(() =>
+    getSiteUri(useUrlByMatching(siteDetectionMode), currentSite, siteDetectionMode),
+  )
 }
 
 export function useCraftFetch<T>(
@@ -52,7 +55,8 @@ export function useCraftAuthToken() {
   if (!authToken) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'CraftCMS Auth Token is missing. Please provide a valid token in your nuxt.config.ts.',
+      statusMessage:
+        'CraftCMS Auth Token is missing. Please provide a valid token in your nuxt.config.ts.',
     })
   }
 

@@ -11,7 +11,7 @@ export default defineConfig(() => ({
     vue(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
+      tsconfigPath: path.join(__dirname, 'tsconfig.json'),
     }),
   ],
   optimizeDeps: {
@@ -41,8 +41,7 @@ export default defineConfig(() => ({
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: [
-      ],
+      external: [],
     },
   },
   test: {

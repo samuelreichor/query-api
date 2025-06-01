@@ -8,14 +8,21 @@ import { useCraftAuthToken } from './useComposables'
 
 function fetchFn<ResT>(url: string) {
   const authToken = useCraftAuthToken()
-  return useAsyncData<ResT>(`craftcms:${url}`, () => $fetch(url, {
-    headers: {
-      Authorization: authToken,
-    },
-  }))
+  return useAsyncData<ResT>(`craftcms:${url}`, () =>
+    $fetch(url, {
+      headers: {
+        Authorization: authToken,
+      },
+    }),
+  )
 }
 
-function constuctUrl(baseUrl: string, queryUrl: string, debug: boolean, queryParams: LocationQuery) {
+function constuctUrl(
+  baseUrl: string,
+  queryUrl: string,
+  debug: boolean,
+  queryParams: LocationQuery,
+) {
   if (!(baseUrl || queryUrl || queryParams)) {
     throw new Error('Please provide baseUrl, queryUrl and queryParams for constructUrl function.')
   }
@@ -35,8 +42,17 @@ function constuctUrl(baseUrl: string, queryUrl: string, debug: boolean, queryPar
   return url
 }
 
-export type PickFrom<T, K extends Array<string>> = T extends Array<unknown> ? T : T extends Record<string, unknown> ? keyof T extends K[number] ? T : K[number] extends never ? T : Pick<T, K[number]> : T
-export type KeysOf<T> = Array<T extends T ? keyof T extends string ? keyof T : never : never>
+export type PickFrom<T, K extends Array<string>> =
+  T extends Array<unknown>
+    ? T
+    : T extends Record<string, unknown>
+      ? keyof T extends K[number]
+        ? T
+        : K[number] extends never
+          ? T
+          : Pick<T, K[number]>
+      : T
+export type KeysOf<T> = Array<T extends T ? (keyof T extends string ? keyof T : never) : never>
 
 type ReturnType<ResT, T extends ElementType> = QueryBuilder<T> & {
   one(): AsyncData<PickFrom<ResT, KeysOf<ResT>> | null, NuxtError<unknown> | null>

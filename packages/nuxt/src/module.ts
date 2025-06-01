@@ -17,7 +17,7 @@ export default defineNuxtModule<Required<CraftCmsOptions>>({
     // Optimize vite deps
     if (nuxt.options.vite.optimizeDeps) {
       nuxt.options.vite.optimizeDeps.include = nuxt.options.vite.optimizeDeps.include || []
-      nuxt.options.vite.optimizeDeps.include.push('vue-craftcms')
+      nuxt.options.vite.optimizeDeps.include.push('@query-api/vue')
     }
 
     // Load options in runtime config
@@ -27,27 +27,18 @@ export default defineNuxtModule<Required<CraftCmsOptions>>({
     addPlugin(resolver.resolve('./runtime/plugin'))
 
     // Add auto imports for components
-    const componentes = [
-      'CraftPage',
-      'CraftArea',
-      'CraftNotImplemented',
-    ]
+    const componentes = ['CraftPage', 'CraftArea', 'CraftNotImplemented']
 
     for (const name of componentes) {
       addComponent({
         name: name,
         export: name,
-        filePath: 'vue-craftcms',
+        filePath: '@query-api/vue',
       })
     }
 
     // Add auto imports for composables
-    const composables = [
-      'useCraftCurrentSite',
-      'useCraftUri',
-      'useCraftFetch',
-      'useCraftAuthToken',
-    ]
+    const composables = ['useCraftCurrentSite', 'useCraftUri', 'useCraftFetch', 'useCraftAuthToken']
 
     for (const name of composables) {
       addImports({
