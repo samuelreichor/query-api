@@ -1,3 +1,9 @@
+## 0.0.4 (2025-06-01)
+
+### 🩹 Fixes
+
+- adjust all readmes for prod ([a2f41ff](https://github.com/samuelreichor/query-api/commit/a2f41ff))
+
 ## 0.0.3 (2025-06-01)
 
 ### 🩹 Fixes
