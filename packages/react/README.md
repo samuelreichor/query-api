@@ -9,7 +9,9 @@
   <br />
 </div>
 
-> [!WARNING] Don't install, this package is under construction!
+> [!WARNING]
+>
+> Don't install, this package is under construction!
 
 ## Install
 
@@ -17,7 +19,9 @@
 npm install @query-api/react
 ```
 
-> [!TIP] > [Documentation](https://samuelreichor/libraries/query-api-react)
+> [!TIP]
+>
+> [Documentation](https://samuelreichor/libraries/query-api-react)
 
 ## Features
 

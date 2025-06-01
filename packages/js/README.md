@@ -27,7 +27,9 @@
 npm install @query-api/js
 ```
 
-> [!TIP] > [Documentation](https://samuelreichor/libraries/js-craftcms-api)
+> [!TIP]
+>
+> [Documentation](https://samuelreichor/libraries/js-craftcms-api)
 
 ## Features
 

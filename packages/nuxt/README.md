@@ -27,7 +27,9 @@
 npm install @query-api/nuxt
 ```
 
-> [!TIP] > [Documentation](https://samuelreichor/libraries/nuxt-craftcms)
+> [!TIP]
+>
+> [Documentation](https://samuelreichor/libraries/nuxt-craftcms)
 
 ## Features
 

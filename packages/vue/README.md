@@ -27,7 +27,9 @@
 npm install @query-api/vue
 ```
 
-> [!TIP] > [Documentation](https://samuelreichor/libraries/vue-craftcms)
+> [!TIP]
+>
+> [Documentation](https://samuelreichor/libraries/vue-craftcms)
 
 ## Features
 
