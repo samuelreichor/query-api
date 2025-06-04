@@ -44,8 +44,8 @@
     "nuxt": ">=3.0.0 || 4.x"
   },
   "dependencies": {
-    "@query-api/vue": "*",
-    "@query-api/js": "*"
+    "@query-api/vue": "workspace:*",
+    "@query-api/js": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",
