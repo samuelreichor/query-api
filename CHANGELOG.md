@@ -1,3 +1,10 @@
+## 0.0.5 (2025-06-04)
+
+### 🩹 Fixes
+
+- prettier alerts in all readmes
+  ([17afa11](https://github.com/samuelreichor/query-api/commit/17afa11))
+
 ## 0.0.4 (2025-06-01)
 
 ### 🩹 Fixes
