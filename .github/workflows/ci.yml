@@ -14,17 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        name: Checkout
         with:
           filter: tree:0
           fetch-depth: 0
 
-      # Cache node_modules
-      - uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10
+          run_install: false
+
+      - uses: actions/setup-node@v3
+        node: Install Node.js
         with:
           node-version: 20
-          cache: 'npm'
+          cache: 'pnpm'
 
-      - run: npm ci --legacy-peer-deps
+      - run: pnpm install --frozen-lockfile
       - uses: nrwl/nx-set-shas@v4
 
-      - run: npx nx affected -t lint test typecheck build
+      - run: pnpx nx affected -t lint test typecheck build
