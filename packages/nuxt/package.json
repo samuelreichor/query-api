@@ -32,12 +32,12 @@
     }
   },
   "scripts": {
-    "build:prepare": "nuxt-module-build prepare",
+    "prepare": "nuxt-module-build prepare",
     "typecheck": "vue-tsc  --project tsconfig.json",
-    "build": "npm run build:prepare && npm run typecheck && npm run build:transpile",
+    "build": "pnpm run typecheck && pnpm run build:transpile",
     "build:nuxt-module": "nuxt-module-build build --outDir dist",
-    "build:transpile": "npm run build:nuxt-module",
-    "build:tarball": "npm pack",
+    "build:transpile": "pnpm run build:nuxt-module",
+    "build:tarball": "pnpm pack",
     "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {

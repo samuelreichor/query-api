@@ -11,11 +11,11 @@
     "ci": "nx run-many -t build test lint",
     "prepare": "husky",
     "fix:prettier": "prettier \"**/*.{md,css,yml,yaml}\" \"packages/**/*.{ts,js,mjs,cjs,mts,cts,jsx,tsx,astro,vue}\" --write",
-    "release": "npx nx run-many --target=build && tsx tools/release.ts",
-    "clean:npm": "rimraf node_modules packages/*/node_modules",
-    "clean:cache": "rimraf .nx",
-    "clean:build": "rimraf build packages/*/dist",
-    "clean": "npm run clean:cache && npm run clean:build && npm run clean:npm"
+    "release": "pnpx nx run-many --target=build && tsx tools/release.ts",
+    "clean:node": "rimraf node_modules packages/*/node_modules",
+    "clean:cache": "rimraf .nx ",
+    "clean:build": "rimraf build packages/*/dist packages/*/.nuxt",
+    "clean": "pnpm run clean:cache && pnpm run clean:build && pnpm run clean:node"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -76,10 +76,7 @@
     "vue": "^3.5.13",
     "vue-tsc": "^2.2.8"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "lint-staged": {
-    "(*.md|*.css|*.yml|*.yaml|*.ts|*.js|*.mjs|*.cjs|*.mts|*.cts|*.jsx|*.tsx|*.astro|*.vue)": "npm run fix:prettier"
+    "(*.md|*.css|*.yml|*.yaml|*.ts|*.js|*.mjs|*.cjs|*.mts|*.cts|*.jsx|*.tsx|*.astro|*.vue)": "pnpm run fix:prettier"
   }
 }
