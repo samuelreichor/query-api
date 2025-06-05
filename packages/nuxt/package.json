@@ -19,20 +19,20 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "main": "./dist/module.mjs",
-  "types": "./dist/types.d.mts",
+  "module": "./dist/module.mjs",
+  "types": "./dist/module.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs"
+      "development": "./src/module.ts",
+      "types": "./dist/module.d.ts",
+      "import": "./dist/module.mjs",
+      "default": "./dist/module.mjs"
     }
   },
   "scripts": {
-    "prepare": "nuxt-module-build prepare",
+    "prepack": "nuxt-module-build prepare",
     "typecheck": "vue-tsc  --project tsconfig.json",
     "build": "pnpm run typecheck && pnpm run build:transpile",
     "build:nuxt-module": "nuxt-module-build build --outDir dist",
@@ -44,12 +44,14 @@
     "nuxt": ">=3.0.0 || 4.x"
   },
   "dependencies": {
-    "@query-api/vue": "*",
-    "@query-api/js": "*"
+    "@query-api/vue": "workspace:*",
+    "@query-api/js": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",
     "nuxt": "^3.13.2",
-    "@nuxt/kit": "^3.13.2"
+    "@nuxt/kit": "^3.13.2",
+    "unbuild": "^3.5.0",
+    "defu": "6.1.4"
   }
 }

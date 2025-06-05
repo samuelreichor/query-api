@@ -28,7 +28,9 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
+      "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
   },
@@ -36,7 +38,7 @@
     "typecheck": "vue-tsc  --project tsconfig.json"
   },
   "dependencies": {
-    "@query-api/js": "*"
+    "@query-api/js": "workspace:*"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"

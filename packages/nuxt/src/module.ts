@@ -3,7 +3,7 @@ import { defaultOptions, type CraftCmsOptions } from '@query-api/vue'
 
 export default defineNuxtModule<Required<CraftCmsOptions>>({
   meta: {
-    name: 'nuxt-craftcms',
+    name: '@query-api/nuxt',
     configKey: 'craftcms',
     compatibility: {
       nuxt: '>=3.0.0',
