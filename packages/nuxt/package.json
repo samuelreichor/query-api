@@ -32,9 +32,9 @@
     }
   },
   "scripts": {
-    "prepack": "nuxt-module-build prepare",
+    "build:prepare": "nuxt-module-build prepare",
     "typecheck": "vue-tsc  --project tsconfig.json",
-    "build": "pnpm run typecheck && pnpm run build:transpile",
+    "build": "pnpm run build:prepare && pnpm run typecheck && pnpm run build:transpile",
     "build:nuxt-module": "nuxt-module-build build --outDir dist",
     "build:transpile": "pnpm run build:nuxt-module",
     "build:tarball": "pnpm pack",
