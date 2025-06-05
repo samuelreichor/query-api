@@ -4,6 +4,9 @@
   "files": [],
   "references": [
     {
+      "path": "./packages/react"
+    },
+    {
       "path": "./packages/vue"
     },
     {
@@ -12,8 +15,5 @@
     {
       "path": "./packages/js"
     },
-    {
-      "path": "./packages/react"
-    }
   ]
 }

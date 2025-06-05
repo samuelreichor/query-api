@@ -1,6 +1,6 @@
 {
   "name": "@query-api/vue",
-  "version": "0.1.3-0",
+  "version": "0.0.1",
   "type": "module",
   "license": "MIT",
   "description": "Craft CMS Query Builder for Vue",
@@ -28,9 +28,7 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
       "default": "./dist/index.js"
     }
   },
@@ -38,7 +36,7 @@
     "typecheck": "vue-tsc  --project tsconfig.json"
   },
   "dependencies": {
-    "@query-api/js": "0.1.3-0"
+    "@query-api/js": "*"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"
