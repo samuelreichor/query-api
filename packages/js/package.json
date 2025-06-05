@@ -1,6 +1,6 @@
 {
   "name": "@query-api/js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "license": "MIT",
   "description": "An url builder to make queries from Craft CMS",
