@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import * as path from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+import * as path from 'node:path'
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -11,12 +11,9 @@ export default defineConfig(() => ({
     vue(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.json'),
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
-  optimizeDeps: {
-    exclude: ['@query-api/vue', '@query-api/js'],
-  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
@@ -34,7 +31,7 @@ export default defineConfig(() => ({
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/module.ts',
       name: '@query-api/nuxt',
-      fileName: 'index',
+      fileName: 'module',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
       formats: ['es' as const],

@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["ESNext", "dom", "dom.iterable"],
+    "lib": ["ESNext", "DOM.Iterable", "DOM"],
     "module": "Preserve",
     "moduleResolution": "bundler",
+    "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -11,7 +16,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "noEmit": true,
-  },
-  "exclude": ["node_modules", "dist", "build"]
+    "customConditions": ["development"]
+  }
 }

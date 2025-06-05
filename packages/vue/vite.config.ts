@@ -11,7 +11,7 @@ export default defineConfig(() => ({
     vue(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.json'),
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
   // Uncomment this if you are using workers.
