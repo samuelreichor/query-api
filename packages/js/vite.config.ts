@@ -8,6 +8,15 @@ export default defineConfig(() => ({
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
   // },
+  build: {
+    outDir: './dist',
+    emptyOutDir: true,
+    reportCompressedSize: true,
+    rollupOptions: {
+      // External packages that should not be bundled into your library.
+      external: ['tslib'],
+    },
+  },
   test: {
     watch: false,
     globals: true,
