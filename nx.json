@@ -77,9 +77,7 @@
       "dependsOn": ["build"]
     },
     "nx-release-publish": {
-      "options": {
-        "packageRoot": "build/{projectRoot}"
-      }
+
     },
     "@nx/js:tsc": {
       "cache": true,
@@ -89,14 +87,6 @@
   },
   "release": {
     "projects": ["packages/js", "packages/vue", "packages/nuxt"],
-    "version": {
-      "specifierSource": "conventional-commits",
-      "manifestRootsToUpdate": ["build/{projectRoot}"],
-      "currentVersionResolver": "git-tag",
-      "versionActionsOptions": {
-        "skipLockFileUpdate": true
-      }
-    },
     "changelog": {
       "projectChangelogs": {
         "renderOptions": {

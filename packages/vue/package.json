@@ -1,6 +1,6 @@
 {
   "name": "@query-api/vue",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "description": "Craft CMS Query Builder for Vue",
@@ -38,7 +38,7 @@
     "typecheck": "vue-tsc  --project tsconfig.json"
   },
   "dependencies": {
-    "@query-api/js": "workspace:*"
+    "@query-api/js": "0.1.0"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"
