@@ -87,6 +87,11 @@
   },
   "release": {
     "projects": ["packages/js", "packages/vue", "packages/nuxt"],
+    "version": {
+      "versionActionsOptions": {
+        "skipLockFileUpdate": true
+      }
+    },
     "changelog": {
       "projectChangelogs": {
         "renderOptions": {
