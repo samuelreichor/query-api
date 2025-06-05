@@ -1,3 +1,9 @@
+## 0.1.4-1 (2025-06-05)
+
+### 🩹 Fixes
+
+- **nuxt:** prepack issue ([2011bf6](https://github.com/samuelreichor/query-api/commit/2011bf6))
+
 ## 0.1.4-0 (2025-06-05)
 
 This was a version bump only for @query-api/js to align it with other projects, there were no code
