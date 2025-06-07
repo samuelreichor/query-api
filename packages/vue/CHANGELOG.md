@@ -1,3 +1,9 @@
+## 0.3.0 (2025-06-07)
+
+### 🚀 Features
+
+- Switch to pnpm ([37e099e](https://github.com/samuelreichor/query-api/commit/37e099e))
+
 ## 0.2.0 (2025-06-05)
 
 This was a version bump only for @query-api/vue to align it with other projects, there were no code
