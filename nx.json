@@ -29,14 +29,12 @@
       }
     },
     {
-      "plugin": "@nx/react/router-plugin",
+      "plugin": "@nx/nuxt/plugin",
       "options": {
         "buildTargetName": "build",
-        "devTargetName": "dev",
-        "startTargetName": "start",
-        "watchDepsTargetName": "watch-deps",
+        "serveTargetName": "serve",
         "buildDepsTargetName": "build-deps",
-        "typecheckTargetName": "typecheck"
+        "watchDepsTargetName": "watch-deps"
       }
     },
     {
@@ -58,30 +56,16 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
-    },
-    {
-      "plugin": "@nx/nuxt/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps"
-      }
     }
   ],
   "targetDefaults": {
-    "build": {
+    "test": {
       "dependsOn": ["^build"]
     },
     "nx-release-publish": {
       "options": {
         "packageRoot": "build/{projectRoot}"
       }
-    },
-    "@nx/js:tsc": {
-      "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
     }
   },
   "release": {
@@ -110,13 +94,6 @@
         "renderOptions": {
           "authors": false
         }
-      }
-    }
-  },
-  "generators": {
-    "@nx/react": {
-      "library": {
-        "unitTestRunner": "vitest"
       }
     }
   }
