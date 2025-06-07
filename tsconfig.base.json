@@ -14,7 +14,7 @@
     "noEmit": true,
     "paths": {
       "@query-api/js": ["./packages/js/src/index.ts"],
-      "@query-api/vue": ["./packages/vue/src/index.ts"],
+      "@query-api/vue": ["./packages/vue/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "dist", "build"]

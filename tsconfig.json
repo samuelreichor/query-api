@@ -2,18 +2,5 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": [
-    {
-      "path": "./packages/react"
-    },
-    {
-      "path": "./packages/vue"
-    },
-    {
-      "path": "./packages/nuxt"
-    },
-    {
-      "path": "./packages/js"
-    },
-  ]
+  "references": []
 }
