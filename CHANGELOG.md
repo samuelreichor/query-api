@@ -1,3 +1,9 @@
+## 0.3.1 (2025-06-07)
+
+### 🩹 Fixes
+
+- update nx.json ([19e6474](https://github.com/samuelreichor/query-api/commit/19e6474))
+
 ## 0.3.0 (2025-06-07)
 
 ### 🚀 Features
