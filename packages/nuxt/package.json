@@ -44,12 +44,14 @@
     "nuxt": ">=3.0.0 || 4.x"
   },
   "dependencies": {
-    "@query-api/vue": "*",
-    "@query-api/js": "*"
+    "@query-api/vue": "workspace:*",
+    "@query-api/js": "workspace:*",
+    "defu": "6.1.4"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.8.4",
-    "nuxt": "^3.13.2",
-    "@nuxt/kit": "^3.13.2"
+    "@nuxt/module-builder": "0.8.4",
+    "@nuxt/kit": "3.17.5",
+    "nuxt": "3.17.5",
+    "vue-router": "4.5.1"
   }
 }

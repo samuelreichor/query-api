@@ -8,7 +8,7 @@
     "build": "nx run-many -t build",
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
-    "ci": "nx run-many -t build test lint",
+    "ci": "nx run-many -t build test lint typecheck",
     "prepare": "husky",
     "fix:prettier": "prettier \"**/*.{md,css,yml,yaml}\" \"packages/**/*.{ts,js,mjs,cjs,mts,cts,jsx,tsx,astro,vue}\" --write",
     "release": "npx nx run-many --target=build && tsx tools/release.ts",
@@ -76,9 +76,6 @@
     "vue": "^3.5.13",
     "vue-tsc": "^2.2.8"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "lint-staged": {
     "(*.md|*.css|*.yml|*.yaml|*.ts|*.js|*.mjs|*.cjs|*.mts|*.cts|*.jsx|*.tsx|*.astro|*.vue)": "npm run fix:prettier"
   }

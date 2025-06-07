@@ -36,7 +36,7 @@
     "typecheck": "vue-tsc  --project tsconfig.json"
   },
   "dependencies": {
-    "@query-api/js": "*"
+    "@query-api/js": "workspace:*"
   },
   "peerDependencies": {
     "vue": ">=3.0.0"

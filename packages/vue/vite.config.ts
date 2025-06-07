@@ -14,6 +14,12 @@ export default defineConfig(() => ({
       tsconfigPath: path.join(__dirname, 'tsconfig.json'),
     }),
   ],
+  resolve: {
+    alias: {
+      '@query-api/js': path.resolve(__dirname, '../js/src/index.ts'),
+    },
+    preserveSymlinks: true,
+  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],

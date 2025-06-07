@@ -73,9 +73,6 @@
     "build": {
       "dependsOn": ["^build"]
     },
-    "test": {
-      "dependsOn": ["build"]
-    },
     "nx-release-publish": {
       "options": {
         "packageRoot": "build/{projectRoot}"
@@ -90,7 +87,14 @@
   "release": {
     "projects": ["packages/js", "packages/vue", "packages/nuxt"],
     "version": {
-      "manifestRootsToUpdate": ["build/{projectRoot}"],
+      "specifierSource": "conventional-commits",
+      "currentVersionResolver": "git-tag",
+      "manifestRootsToUpdate": [
+        {
+          "path": "build/{projectRoot}",
+          "preserveLocalDependencyProtocols": false
+        }
+      ],
       "versionActionsOptions": {
         "skipLockFileUpdate": true
       }
