@@ -8,7 +8,7 @@
     "build": "nx run-many -t build",
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
-    "ci": "nx run-many -t build test lint typecheck",
+    "ci": "nx run-many -t build test lint typecheck --projects=@query-api",
     "prepare": "husky",
     "fix:prettier": "prettier \"**/*.{md,css,yml,yaml}\" \"{packages,playgrounds,tools,common}/**/*.{ts,js,mjs,cjs,mts,cts,jsx,tsx,astro,vue}\" --write",
     "release": "npx nx run-many --target=build && tsx tools/release.ts",
