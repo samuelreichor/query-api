@@ -1,3 +1,10 @@
+## 0.3.2-alpha3 (2025-06-20)
+
+### 🩹 Fixes
+
+- Remove development export of all package.jsons in packages
+  ([1709125](https://github.com/samuelreichor/query-api/commit/1709125))
+
 ## 0.3.2-alpha2 (2025-06-20)
 
 This was a version bump only for @query-api/vue to align it with other projects, there were no code
