@@ -1,3 +1,10 @@
+## 0.3.2-alpha2 (2025-06-20)
+
+### 🩹 Fixes
+
+- **nuxt:** Fix prepare script issue in package.json
+  ([7c333d0](https://github.com/samuelreichor/query-api/commit/7c333d0))
+
 ## 0.3.2-alpha (2025-06-20)
 
 This was a version bump only, there were no code changes.
