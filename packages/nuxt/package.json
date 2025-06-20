@@ -32,7 +32,6 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "development": "./src/module.ts",
       "import": "./dist/module.mjs",
       "default": "./dist/module.mjs"
     }
