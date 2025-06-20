@@ -1,8 +1,8 @@
 /// <reference types='vitest' />
-import * as path from 'node:path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+import * as path from 'node:path'
 
 export default defineConfig(() => ({
   root: __dirname,
@@ -11,16 +11,9 @@ export default defineConfig(() => ({
     vue(),
     dts({
       entryRoot: 'src',
-      tsconfigPath: path.join(__dirname, 'tsconfig.json'),
+      tsconfigPath: path.join(__dirname, 'tsconfig.lib.json'),
     }),
   ],
-  resolve: {
-    alias: {
-      '@query-api/js': path.resolve(__dirname, '../js/src/index.ts'),
-      '@query-api/vue': path.resolve(__dirname, '../vue/src/index.ts'),
-    },
-    preserveSymlinks: true,
-  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [ nxViteTsPaths() ],

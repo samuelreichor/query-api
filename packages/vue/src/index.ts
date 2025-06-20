@@ -10,24 +10,24 @@ export * from './types'
 
 export { CraftPage, CraftArea, CraftNotImplemented }
 
-export const siteDetectionMode = {
+export const siteDetectionModes = {
   PATH: 'path',
   ORIGIN: 'origin',
 } as const
 
-export const defaultOptions: CraftCmsOptions = {
+export const defaultCraftOptions: CraftCmsOptions = {
   baseUrl: '',
   authToken: '',
   registerComponents: true,
   debug: false,
   enableEntryTypeMapping: true,
   siteMap: [],
-  siteDetectionMode: siteDetectionMode.PATH,
+  siteDetectionMode: siteDetectionModes.PATH,
 }
 
 export const CraftCms = {
-  install(app: App, options: CraftCmsOptions = defaultOptions) {
-    const mergedOptions: CraftCmsOptions = { ...defaultOptions, ...options }
+  install(app: App, options: CraftCmsOptions = defaultCraftOptions) {
+    const mergedOptions: CraftCmsOptions = { ...defaultCraftOptions, ...options }
 
     if (mergedOptions.registerComponents) {
       app.component('CraftPage', CraftPage)

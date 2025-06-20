@@ -1,0 +1,22 @@
+{
+  "name": "nuxt-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "prebuild": "nuxt prepare",
+    "build": "npm run prebuild && nuxt build",
+    "typecheck": "vue-tsc  --project tsconfig.app.json",
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev"
+  },
+  "dependencies": {
+    "@query-api/nuxt": "*"
+  },
+  "nx": {
+    "implicitDependencies": ["@query-api/nuxt"],
+    "targets": {
+      "build": {
+        "dependsOn": ["^build"]
+      }
+    }
+  }
+}
