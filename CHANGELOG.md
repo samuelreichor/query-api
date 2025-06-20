@@ -1,3 +1,7 @@
+## 0.3.2 (2025-06-20)
+
+This was a version bump only, there were no code changes.
+
 ## 0.3.2-alpha3 (2025-06-20)
 
 ### 🩹 Fixes
