@@ -23,8 +23,8 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "nx run prepare",
-    "build": "nuxt-module-build build --outDir dist",
+    "prebuild": "nuxt-module-build prepare",
+    "build": "npm run prebuild && nuxt-module-build build --outDir dist",
     "typecheck": "vue-tsc  --project tsconfig.lib.json"
   },
   "main": "./dist/module.mjs",
@@ -49,14 +49,6 @@
     "targets": {
       "build": {
         "dependsOn": ["^build"]
-      },
-      "prepare": {
-        "executor": "nx:run-commands",
-        "dependsOn": ["^build"],
-        "options": {
-          "cwd": "packages/nuxt",
-          "command": "nuxt-module-build prepare"
-        }
       }
     }
   }
