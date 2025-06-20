@@ -1,5 +1,5 @@
 import type { DefineComponent } from 'vue'
-import { siteDetectionMode } from './index'
+import { siteDetectionModes } from './index'
 
 export type Config = {
   pages: Prettify<
@@ -42,7 +42,7 @@ export type CraftAreaComponent = {
   [key: string]: unknown
 }
 
-export type SiteDetectionMode = (typeof siteDetectionMode)[keyof typeof siteDetectionMode]
+export type SiteDetectionMode = (typeof siteDetectionModes)[keyof typeof siteDetectionModes]
 
 type Prettify<T> = {
   [K in keyof T]: T[K]

@@ -22,36 +22,42 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "prepare": "nx run prepare",
+    "build": "nuxt-module-build build --outDir dist",
+    "typecheck": "vue-tsc  --project tsconfig.lib.json"
+  },
   "main": "./dist/module.mjs",
-  "types": "./dist/types.d.mts",
+  "module": "./dist/module.mjs",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/types.d.mts",
-      "import": "./dist/module.mjs"
+      "development": "./src/module.ts",
+      "import": "./dist/module.mjs",
+      "default": "./dist/module.mjs"
     }
-  },
-  "scripts": {
-    "build:prepare": "nuxt-module-build prepare",
-    "typecheck": "vue-tsc  --project tsconfig.json",
-    "build": "npm run build:prepare && npm run typecheck && npm run build:transpile",
-    "build:nuxt-module": "nuxt-module-build build --outDir dist",
-    "build:transpile": "npm run build:nuxt-module",
-    "build:tarball": "npm pack",
-    "lint:fix": "eslint . --fix"
   },
   "peerDependencies": {
     "nuxt": ">=3.0.0 || 4.x"
   },
   "dependencies": {
-    "@query-api/vue": "workspace:*",
-    "@query-api/js": "workspace:*",
+    "@query-api/vue": "*",
+    "@query-api/js": "*",
     "defu": "6.1.4"
   },
-  "devDependencies": {
-    "@nuxt/module-builder": "0.8.4",
-    "@nuxt/kit": "3.17.5",
-    "nuxt": "3.17.5",
-    "vue-router": "4.5.1"
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": ["^build"]
+      },
+      "prepare": {
+        "executor": "nx:run-commands",
+        "dependsOn": ["^build"],
+        "options": {
+          "cwd": "packages/nuxt",
+          "command": "nuxt-module-build prepare"
+        }
+      }
+    }
   }
 }

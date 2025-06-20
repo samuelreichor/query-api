@@ -1,4 +1,4 @@
-import { siteDetectionMode, type CraftCmsOptions, type SiteDetectionMode } from '@query-api/vue'
+import { siteDetectionModes, type CraftCmsOptions, type SiteDetectionMode } from '@query-api/vue'
 import { getPreviewParams } from '@query-api/js'
 import { defu } from 'defu'
 import { useRuntimeConfig, useRoute, createError, useRequestURL, useFetch } from 'nuxt/app'
@@ -68,5 +68,5 @@ function useUrlByMatching(mode: SiteDetectionMode) {
   const route = useRoute()
   const fullUrl = computed(() => useRequest.href)
   const fullPath = computed(() => route.path)
-  return mode === siteDetectionMode.PATH ? fullPath : fullUrl
+  return mode === siteDetectionModes.PATH ? fullPath : fullUrl
 }

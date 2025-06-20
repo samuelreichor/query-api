@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { siteDetectionMode } from '@query-api/vue'
+import { siteDetectionModes } from '@query-api/vue'
 import { ref, computed } from 'vue'
 import {
   getCurrentSite,
@@ -23,13 +23,13 @@ describe('getCurrentSite', () => {
     const result = getCurrentSite(
       mockSiteMap,
       ref('https://google.com/usa/page/slug'),
-      siteDetectionMode.ORIGIN,
+      siteDetectionModes.ORIGIN,
     )
     expect(result).toEqual(mockSiteMap[2]) // USA site
   })
 
   it('should return the correct site based on the URL (path matching)', () => {
-    const result = getCurrentSite(mockSiteMap, ref('/usa/page/slug'), siteDetectionMode.PATH)
+    const result = getCurrentSite(mockSiteMap, ref('/usa/page/slug'), siteDetectionModes.PATH)
     expect(result).toEqual(mockSiteMap[2]) // USA site
   })
 
@@ -37,7 +37,7 @@ describe('getCurrentSite', () => {
     const result = getCurrentSite(
       mockSiteMap,
       ref('https://unknown-site.com/page'),
-      siteDetectionMode.ORIGIN,
+      siteDetectionModes.ORIGIN,
     )
     expect(result).toEqual(mockSiteMap[0]) // Default fallback site
   })
@@ -50,7 +50,7 @@ describe('getCurrentSite', () => {
     const result = getCurrentSite(
       extendedSiteMap,
       ref('https://example.com/sub/page'),
-      siteDetectionMode.ORIGIN,
+      siteDetectionModes.ORIGIN,
     )
     expect(result).toEqual(extendedSiteMap[1]) // German site (longest match)
   })
@@ -60,12 +60,12 @@ describe('getCurrentSite', () => {
       { handle: 'en', id: 1, path: '/en', origin: '' },
       { handle: 'de', id: 2, path: '/en/sub', origin: '' },
     ]
-    const result = getCurrentSite(extendedSiteMap, ref('/en/sub/page'), siteDetectionMode.PATH)
+    const result = getCurrentSite(extendedSiteMap, ref('/en/sub/page'), siteDetectionModes.PATH)
     expect(result).toEqual(extendedSiteMap[1]) // German site (longest match)
   })
 
   it('should handle URLs without protocol correctly', () => {
-    expect(getCurrentSite(mockSiteMap, ref('google.com/path'), siteDetectionMode.ORIGIN)).toEqual(
+    expect(getCurrentSite(mockSiteMap, ref('google.com/path'), siteDetectionModes.ORIGIN)).toEqual(
       mockSiteMap[0],
     )
   })
@@ -76,20 +76,20 @@ describe('getSiteUri', () => {
     const result = getSiteUri(
       ref('https://google.com/some/path'),
       mockCurrentSite,
-      siteDetectionMode.ORIGIN,
+      siteDetectionModes.ORIGIN,
     )
     expect(result).toBe('some/path')
   })
 
   it('should return "__home__" if the URL is the site root', () => {
-    expect(getSiteUri(ref('https://google.com'), mockCurrentSite, siteDetectionMode.ORIGIN)).toBe(
+    expect(getSiteUri(ref('https://google.com'), mockCurrentSite, siteDetectionModes.ORIGIN)).toBe(
       '__home__',
     )
   })
 
   it('should remove multiple leading and trailing slashes', () => {
     expect(
-      getSiteUri(ref('https://google.com////path'), mockCurrentSite, siteDetectionMode.ORIGIN),
+      getSiteUri(ref('https://google.com////path'), mockCurrentSite, siteDetectionModes.ORIGIN),
     ).toBe('path')
   })
 
@@ -98,7 +98,7 @@ describe('getSiteUri', () => {
       getSiteUri(
         ref('https://google.com/page#section?test=1'),
         mockCurrentSite,
-        siteDetectionMode.ORIGIN,
+        siteDetectionModes.ORIGIN,
       ),
     ).toBe('page')
   })
@@ -108,14 +108,14 @@ describe('getSiteUri', () => {
       getSiteUri(
         ref('https://google.com/some%20very%2Fstrange%2Dpath'),
         mockCurrentSite,
-        siteDetectionMode.ORIGIN,
+        siteDetectionModes.ORIGIN,
       ),
     ).toBe('some%20very%2Fstrange%2Dpath')
   })
 
   it('should handle path-based URI when pathMatching is enabled', () => {
     const mockPathSite = ref(mockSiteMap[2]) // USA site
-    expect(getSiteUri(ref('/usa/some/path'), mockPathSite, siteDetectionMode.PATH)).toBe(
+    expect(getSiteUri(ref('/usa/some/path'), mockPathSite, siteDetectionModes.PATH)).toBe(
       'some/path',
     )
   })
@@ -137,20 +137,20 @@ describe('normalizeUrl', () => {
 })
 
 describe('getSortedSitesByMatching', () => {
-  it('should sort sites by longest origin when pathMatching is siteDetectionMode.ORIGIN', () => {
-    const sortedSites = getSortedSitesByMatching(mockSiteMap, siteDetectionMode.ORIGIN)
+  it('should sort sites by longest origin when pathMatching is siteDetectionModes.ORIGIN', () => {
+    const sortedSites = getSortedSitesByMatching(mockSiteMap, siteDetectionModes.ORIGIN)
     const keys = sortedSites.map((site) => site.handle)
     expect(keys).toEqual(['usa', 'de', 'en']) // Sorted by longest origin
   })
 
-  it('should sort sites by longest path when pathMatching is siteDetectionMode.PATH', () => {
-    const sortedSites = getSortedSitesByMatching(mockSiteMap, siteDetectionMode.PATH)
+  it('should sort sites by longest path when pathMatching is siteDetectionModes.PATH', () => {
+    const sortedSites = getSortedSitesByMatching(mockSiteMap, siteDetectionModes.PATH)
     const keys = sortedSites.map((site) => site.handle)
     expect(keys).toEqual(['usa', 'de', 'en']) // Sorted by longest path
   })
 
   it('should return an empty array if input is empty', () => {
-    expect(getSortedSitesByMatching([], siteDetectionMode.ORIGIN)).toEqual([])
+    expect(getSortedSitesByMatching([], siteDetectionModes.ORIGIN)).toEqual([])
   })
 
   it('should maintain order when origins/paths have the same length', () => {
@@ -158,8 +158,10 @@ describe('getSortedSitesByMatching', () => {
       { handle: 'a', id: 1, origin: 'https://aaa.com', path: '/a' },
       { handle: 'b', id: 2, origin: 'https://bbb.com', path: '/b' },
     ]
-    expect(getSortedSitesByMatching(sameLengthMap, siteDetectionMode.ORIGIN)).toEqual(sameLengthMap)
-    expect(getSortedSitesByMatching(sameLengthMap, siteDetectionMode.PATH)).toEqual(sameLengthMap)
+    expect(getSortedSitesByMatching(sameLengthMap, siteDetectionModes.ORIGIN)).toEqual(
+      sameLengthMap,
+    )
+    expect(getSortedSitesByMatching(sameLengthMap, siteDetectionModes.PATH)).toEqual(sameLengthMap)
   })
 })
 

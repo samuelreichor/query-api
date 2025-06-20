@@ -2,7 +2,7 @@ import {
   type CraftSites,
   type CraftSite,
   type SiteDetectionMode,
-  siteDetectionMode,
+  siteDetectionModes,
 } from '@query-api/vue'
 import type { Ref } from 'vue'
 
@@ -37,13 +37,13 @@ export function normalizeUrl(url: string) {
 }
 
 export function getSiteByMatching(currentSite: CraftSite, mode: SiteDetectionMode) {
-  return mode === siteDetectionMode.PATH ? currentSite.path! : currentSite.origin!
+  return mode === siteDetectionModes.PATH ? currentSite.path! : currentSite.origin!
 }
 
 export function getSortedSitesByMatching(siteMap: CraftSites, mode: SiteDetectionMode) {
   return [...siteMap].sort((a, b) => {
-    const keyA = mode === siteDetectionMode.PATH ? a.path || '' : a.origin || ''
-    const keyB = mode === siteDetectionMode.PATH ? b.path || '' : b.origin || ''
+    const keyA = mode === siteDetectionModes.PATH ? a.path || '' : a.origin || ''
+    const keyB = mode === siteDetectionModes.PATH ? b.path || '' : b.origin || ''
 
     return keyB.length - keyA.length
   })

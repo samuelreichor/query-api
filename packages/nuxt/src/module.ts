@@ -1,16 +1,16 @@
 import { addPlugin, defineNuxtModule, addImports, addComponent, createResolver } from '@nuxt/kit'
-import { defaultOptions, type CraftCmsOptions } from '@query-api/vue'
+import { defaultCraftOptions, type CraftCmsOptions } from '@query-api/vue'
 
 export default defineNuxtModule<Required<CraftCmsOptions>>({
   meta: {
-    name: 'nuxt-craftcms',
+    name: '@query-api/nuxt',
     configKey: 'craftcms',
     compatibility: {
       nuxt: '>=3.0.0',
     },
   },
   // Default configuration options of the Nuxt module
-  defaults: defaultOptions,
+  defaults: defaultCraftOptions,
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 

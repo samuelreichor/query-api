@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
+    "composite": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["ESNext", "dom", "dom.iterable"],
-    "module": "Preserve",
-    "moduleResolution": "bundler",
+    "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
@@ -11,11 +16,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "noEmit": true,
-    "paths": {
-      "@query-api/js": ["./packages/js/src/index.ts"],
-      "@query-api/vue": ["./packages/vue/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "dist", "build"]
+    "customConditions": ["development"]
+  }
 }

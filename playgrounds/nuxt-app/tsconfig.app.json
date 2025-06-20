@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
+  },
+  "include": [".nuxt/nuxt.d.ts", "src/**/*", "nuxt.config.ts"],
+  "exclude": ["out-tsc", "dist", "eslint.config.js", "eslint.config.cjs", "eslint.config.mjs"],
+  "references": [
+    {
+      "path": "../../packages/vue/tsconfig.lib.json"
+    },
+    {
+      "path": "../common/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/nuxt/tsconfig.lib.json"
+    }
+  ]
+}
