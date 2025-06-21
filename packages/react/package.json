@@ -3,18 +3,18 @@
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
-  "description": "Craft CMS Query Builder for Vue",
-  "repository": "https://github.com/samuelreichor/query-api/tree/main/packages/vue",
+  "description": "Craft CMS Query Builder for React",
+  "repository": "https://github.com/samuelreichor/query-api/tree/main/packages/react",
   "author": "Samuel Reichoer",
   "bugs": {
     "url": "https://github.com/samuelreichor/query-api/issues"
   },
-  "homepage": "https://samuelreichor.at/libraries/vue-craftcms",
+  "homepage": "https://samuelreichor.at/libraries/query-api-react",
   "keywords": [
     "Craft CMS",
     "Query Builder",
     "Query API",
-    "Vue"
+    "React"
   ],
   "publishConfig": {
     "access": "public"
@@ -35,8 +35,5 @@
   },
   "dependencies": {
     "@query-api/js": "*"
-  },
-  "peerDependencies": {
-    "react": "^19.0.0"
   }
 }
