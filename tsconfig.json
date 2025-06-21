@@ -17,6 +17,12 @@
     },
     {
       "path": "./playgrounds/common"
+    },
+    {
+      "path": "./packages/react"
+    },
+    {
+      "path": "./playgrounds/react-app"
     }
   ]
 }

@@ -66,6 +66,17 @@
           "targetName": "typecheck"
         }
       }
+    },
+    {
+      "plugin": "@nx/react/router-plugin",
+      "options": {
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "startTargetName": "start",
+        "watchDepsTargetName": "watch-deps",
+        "buildDepsTargetName": "build-deps",
+        "typecheckTargetName": "typecheck"
+      }
     }
   ],
   "targetDefaults": {
@@ -102,6 +113,24 @@
         "renderOptions": {
           "authors": false
         }
+      }
+    }
+  },
+  "generators": {
+    "@nx/react": {
+      "library": {
+        "style": "none",
+        "linter": "none",
+        "unitTestRunner": "vitest"
+      },
+      "application": {
+        "babel": true,
+        "style": "none",
+        "linter": "none",
+        "bundler": "vite"
+      },
+      "component": {
+        "style": "none"
       }
     }
   }
