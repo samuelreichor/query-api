@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Config } from '@query-api/vue'
+import type { ContentMapping } from '@query-api/vue'
 import { CraftPage } from '@query-api/vue'
 import Home from '../templates/pages/home.vue'
 import News from '../templates/pages/news.vue'
@@ -13,7 +13,7 @@ import {
   useCraftAsset,
 } from '../../.nuxt/imports'
 
-const mapping: Config = {
+const mapping: ContentMapping = {
   pages: {
     home: Home,
     'news:home': News,

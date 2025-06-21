@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { inject, provide } from 'vue'
-import type { Config, CraftCmsOptions } from '../types'
+import type { ContentMapping, CraftCmsOptions } from '../types'
 import type { PropType } from 'vue'
 
 const props = defineProps({
   config: {
-    type: Object as PropType<Config>,
+    type: Object as PropType<ContentMapping>,
     required: true,
   },
   content: {

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Config, CraftAreaComponent } from '../types'
+import type { ContentMapping, CraftAreaComponent } from '../types'
 import { inject } from 'vue'
 import type { PropType } from 'vue'
 const props = defineProps({
@@ -9,7 +9,7 @@ const props = defineProps({
   },
 })
 
-const config = inject<Config>('config')
+const config = inject<ContentMapping>('config')
 
 function getCurrentComponent(component: unknown) {
   if (!config || !('components' in config)) {
