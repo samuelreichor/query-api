@@ -6,6 +6,9 @@
       "path": "../../packages/react"
     },
     {
+      "path": "../common"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ],
