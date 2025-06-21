@@ -1,3 +1,10 @@
+## 0.4.0-alpha1 (2025-06-21)
+
+### 🚀 Features
+
+- **react:** Add base react package and playground
+  ([a9269f1](https://github.com/samuelreichor/query-api/commit/a9269f1))
+
 ## 0.3.2 (2025-06-20)
 
 This was a version bump only for @query-api/js to align it with other projects, there were no code
