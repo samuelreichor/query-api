@@ -4,17 +4,17 @@ import type { ContentMapping, CraftPageEntry } from '../types'
 
 function handleError(
   contentMapping: ContentMapping,
-  code: '404',
+  code: '404' | '500',
   message: string,
 ): React.ElementType {
   const pages = contentMapping.pages
-  const page404 = pages[`page${code}`]
-  if (page404) {
-    return page404
+  const specificErrorPage = pages[`page${code}`]
+  if (specificErrorPage) {
+    return specificErrorPage
   }
-  const errorPage = pages.error
-  if (errorPage) {
-    return errorPage
+  const defaultError = pages.error
+  if (defaultError) {
+    return defaultError
   }
   throw new Error(message)
 }
@@ -30,6 +30,14 @@ function resolvePageComponent(
     )
   }
 
+  if (!content) {
+    return handleError(
+      contentMapping,
+      '500',
+      'No content was provided in CraftPage. Please check your queried data.',
+    )
+  }
+
   const section = content.sectionHandle
   if (!section) {
     return handleError(
@@ -40,7 +48,7 @@ function resolvePageComponent(
   }
 
   const entryType = content.metadata?.entryType ?? 'default'
-  const enableTypeMap = getCraftInstance()?.enableEntryTypeMapping ?? false
+  const enableTypeMap = getCraftInstance().enableEntryTypeMapping ?? false
 
   // Try section:entryType
   if (enableTypeMap && entryType !== 'default' && entryType !== section) {
@@ -67,11 +75,11 @@ function resolvePageComponent(
 }
 
 type Props = {
-  content: CraftPageEntry
+  content: object
 }
 
 const CraftPage: React.FC<Props> = ({ content }) => {
-  const PageComponent = resolvePageComponent(getContentMapping(), content)
+  const PageComponent = resolvePageComponent(getContentMapping(), content as CraftPageEntry)
   return <PageComponent {...content} />
 }
 
