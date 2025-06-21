@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { useCraftUrlBuilder, CraftNotImplemented, useCraft, type Config } from '@query-api/vue'
+import {
+  useCraftUrlBuilder,
+  CraftNotImplemented,
+  useCraft,
+  type ContentMapping,
+} from '@query-api/vue'
 import { useCraftFetch } from './composables/useCraftFetch'
 
 import Home from './views/home.vue'
 import News from './views/news.vue'
 import Headline from './components/headline.vue'
 
-const mapping: Config = {
+const mapping: ContentMapping = {
   pages: {
     home: Home,
     'news:home': News,
