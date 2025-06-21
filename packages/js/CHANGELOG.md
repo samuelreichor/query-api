@@ -1,3 +1,8 @@
+## 0.4.0-alpha2 (2025-06-21)
+
+This was a version bump only for @query-api/js to align it with other projects, there were no code
+changes.
+
 ## 0.4.0-alpha1 (2025-06-21)
 
 ### 🚀 Features
