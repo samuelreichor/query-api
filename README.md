@@ -18,7 +18,7 @@ consistency between various JavaScript environments.
 - [`@query-api/js`](/packages/js): Core SDK for all JavaScript Frameworks.
 - [`@query-api/vue`](/packages/vue): SDK for Vue.
 - [`@query-api/nuxt`](/packages/nuxt): SDK for Nuxt.
-<!-- - [`@query-api/react`](/packages/react): SDK for React. -->
+- [`@query-api/react`](/packages/react): SDK for React.
 
 ## Support
 
