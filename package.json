@@ -12,7 +12,7 @@
     "ci:playgrounds": "nx run-many -t build test lint typecheck --projects=*-app",
     "prepare": "husky",
     "fix:prettier": "prettier \"**/*.{md,css,yml,yaml}\" \"{packages,playgrounds,tools,common}/**/*.{ts,js,mjs,cjs,mts,cts,jsx,tsx,astro,vue}\" --write",
-    "release": "npx nx run-many --target=build && tsx tools/release.ts",
+    "release": "npx nx run-many -t build --projects=@query-api && tsx tools/release.ts",
     "clean:npm": "rimraf node_modules packages/*/node_modules playgrounds/*/node_modules",
     "clean:cache": "rimraf .nx",
     "clean:build": "rimraf build packages/*/dist playgrounds/*/dist packages/*/.nuxt playgrounds/*/.nuxt packages/*/.output playgrounds/*/.output",
