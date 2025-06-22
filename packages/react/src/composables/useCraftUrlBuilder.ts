@@ -1,10 +1,10 @@
 import { buildCraftQueryUrl } from '@query-api/js'
-import { getCraftInstance } from './useApi'
+import { useCraftInstance } from './useApi'
 import type { ElementType, ExecutionMethod } from '@query-api/js'
 
 export function useCraftUrlBuilder<T extends ElementType>(elementType: T) {
   const queryBuilder = buildCraftQueryUrl(elementType)
-  const { baseUrl, debug } = getCraftInstance()
+  const { baseUrl, debug } = useCraftInstance()
 
   return {
     ...queryBuilder,

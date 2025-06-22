@@ -11,7 +11,6 @@ export function App() {
       <Routes>
         <Route path="*" element={<CraftRouter />} />
       </Routes>
-      {/* END: routes */}
     </div>
   )
 }

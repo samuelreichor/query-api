@@ -1,7 +1,7 @@
 import CraftArea from './components/CraftArea'
 import CraftPage from './components/CraftPage'
 import CraftNotImplemented from './components/CraftNotImplemented'
-import type { CraftCmsOptions } from './types'
+import type { CraftOptions } from './types'
 
 export { CraftArea, CraftPage, CraftNotImplemented }
 export * from './composables/useApi'
@@ -13,7 +13,7 @@ export const siteDetectionModes = {
   ORIGIN: 'origin',
 } as const
 
-export const defaultCraftOptions: CraftCmsOptions = {
+export const defaultCraftOptions: CraftOptions = {
   baseUrl: '',
   authToken: '',
   contentMapping: { pages: {}, components: {} },

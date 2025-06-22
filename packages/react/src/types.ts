@@ -12,12 +12,15 @@ export type CraftAreaComponent = {
   [key: string]: unknown
 }
 
+export type HandledErrorCodes = '404' | '500'
+
 export type ContentMapping = {
   pages: Prettify<
     {
       [key: string]: React.ElementType
     } & {
-      page404?: React.ElementType
+      [K in `page${HandledErrorCodes}`]?: React.ElementType
+    } & {
       error?: React.ElementType
     }
   >
@@ -40,7 +43,7 @@ export type CraftSites = CraftSite[]
 
 export type SiteDetectionMode = (typeof siteDetectionModes)[keyof typeof siteDetectionModes]
 
-export type CraftCmsOptions = {
+export type CraftOptions = {
   baseUrl: string
   authToken: string
   contentMapping: ContentMapping

@@ -1,10 +1,10 @@
 import React from 'react'
-import { getContentMapping, getCraftInstance } from '../composables/useApi'
-import type { ContentMapping, CraftPageEntry } from '../types'
+import { useCraftInstance } from '../composables/useApi'
+import type { ContentMapping, CraftOptions, CraftPageEntry, HandledErrorCodes } from '../types'
 
 function handleError(
   contentMapping: ContentMapping,
-  code: '404' | '500',
+  code: HandledErrorCodes,
   message: string,
 ): React.ElementType {
   const pages = contentMapping.pages
@@ -20,9 +20,10 @@ function handleError(
 }
 
 function resolvePageComponent(
-  contentMapping: ContentMapping,
+  craftOptions: CraftOptions,
   content: CraftPageEntry,
 ): React.ElementType {
+  const contentMapping = craftOptions.contentMapping
   const { pages } = contentMapping
   if (!pages) {
     throw new Error(
@@ -42,13 +43,13 @@ function resolvePageComponent(
   if (!section) {
     return handleError(
       contentMapping,
-      '404',
+      '500',
       'Section handle not found in queried data. Check your query or prevent it by defining an error page.',
     )
   }
 
   const entryType = content.metadata?.entryType ?? 'default'
-  const enableTypeMap = getCraftInstance().enableEntryTypeMapping ?? false
+  const enableTypeMap = craftOptions.enableEntryTypeMapping ?? false
 
   // Try section:entryType
   if (enableTypeMap && entryType !== 'default' && entryType !== section) {
@@ -79,7 +80,7 @@ type Props = {
 }
 
 const CraftPage: React.FC<Props> = ({ content }) => {
-  const PageComponent = resolvePageComponent(getContentMapping(), content as CraftPageEntry)
+  const PageComponent = resolvePageComponent(useCraftInstance(), content as CraftPageEntry)
   return <PageComponent {...content} />
 }
 

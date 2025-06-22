@@ -1,5 +1,5 @@
 import type { ContentMapping } from '../types'
-import { getContentMapping } from '../composables/useApi'
+import { useContentMapping } from '../composables/useApi'
 
 function getCurrentComponent(cData: object, contentMapping: ContentMapping) {
   if (!contentMapping || !('components' in contentMapping)) {
@@ -26,8 +26,8 @@ type Props = {
 }
 
 const CraftArea: React.FC<Props> = ({ content }) => {
+  const contentMapping = useContentMapping()
   if (!content) return
-  const contentMapping = getContentMapping()
   const elements: React.ReactNode[] = []
 
   for (let i = 0; i < content.length; i++) {
