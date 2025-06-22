@@ -77,6 +77,17 @@
         "buildDepsTargetName": "build-deps",
         "typecheckTargetName": "typecheck"
       }
+    },
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
     }
   ],
   "targetDefaults": {
@@ -131,6 +142,12 @@
       },
       "component": {
         "style": "none"
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "none",
+        "linter": "none"
       }
     }
   }

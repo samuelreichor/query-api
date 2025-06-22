@@ -23,6 +23,12 @@
     },
     {
       "path": "./playgrounds/react-app"
+    },
+    {
+      "path": "./packages/next"
+    },
+    {
+      "path": "./playgrounds/next-app"
     }
   ]
 }
