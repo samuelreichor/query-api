@@ -15,7 +15,7 @@ export function useCraftInstance() {
   return craftcmsInstance
 }
 
-export function useContentMapping() {
+export function useCraftContentMapping() {
   if (!craftcmsInstance || craftcmsInstance.contentMapping === undefined) {
     throw new Error(
       "You can't use getContentMapping if you're not loading craftInit and provide a valid contentMapping.",
