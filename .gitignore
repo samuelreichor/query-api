@@ -54,3 +54,7 @@ build
 .nuxt
 .nitro
 .cache
+
+# Next.js
+.next
+out

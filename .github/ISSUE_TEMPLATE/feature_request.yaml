@@ -12,6 +12,7 @@ body:
         - '@query-api/vue'
         - '@query-api/nuxt'
         - '@query-api/react'
+        - '@query-api/next'
   - type: textarea
     id: feature-description
     attributes:

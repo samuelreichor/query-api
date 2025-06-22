@@ -1,0 +1,59 @@
+{
+  "name": "@query-api/next",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "description": "Craft CMS Query Builder for Next",
+  "repository": "https://github.com/samuelreichor/query-api/tree/main/packages/next",
+  "author": "Samuel Reichoer",
+  "bugs": {
+    "url": "https://github.com/samuelreichor/query-api/issues"
+  },
+  "homepage": "https://samuelreichor.at/libraries/query-api-next",
+  "keywords": [
+    "Craft CMS",
+    "Query Builder",
+    "Query API",
+    "Next"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && rm -f tsconfig.lib.tsbuildinfo && rollup -c"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/client.d.ts",
+      "react-server": {
+        "default": "./dist/server.js"
+      },
+      "default": "./dist/client.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "react-server": {
+        "default": "./dist/server.js"
+      },
+      "default": "./dist/client.js"
+    }
+  },
+  "dependencies": {
+    "@query-api/js": "*",
+    "@query-api/react": "*"
+  },
+  "peerDependencies": {
+    "next": "^15.x"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": ["^build"]
+      }
+    }
+  }
+}
