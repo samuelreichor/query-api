@@ -1,3 +1,12 @@
+## 0.4.0-alpha3.0 (2025-06-22)
+
+### 🩹 Fixes
+
+- **react:** Rename useContentMapping to useCraftContentMapping
+  ([9b2e741](https://github.com/samuelreichor/query-api/commit/9b2e741))
+- **react:** Unchange wrong naming conventions of all functions
+  ([9673fa8](https://github.com/samuelreichor/query-api/commit/9673fa8))
+
 ## 0.4.0-alpha3 (2025-06-22)
 
 ### 🩹 Fixes
