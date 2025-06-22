@@ -1,3 +1,10 @@
+## 0.4.0-alpha3 (2025-06-22)
+
+### 🩹 Fixes
+
+- **react:** Fix law of hooks in useApi and namings
+  ([d7e52db](https://github.com/samuelreichor/query-api/commit/d7e52db))
+
 ## 0.4.0-alpha2 (2025-06-21)
 
 ### 🩹 Fixes
