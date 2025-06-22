@@ -19,6 +19,7 @@ body:
         - '@query-api/vue'
         - '@query-api/nuxt'
         - '@query-api/react'
+        - '@query-api/next'
     validations:
       required: true
   - type: input

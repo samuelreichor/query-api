@@ -77,6 +77,17 @@
         "buildDepsTargetName": "build-deps",
         "typecheckTargetName": "typecheck"
       }
+    },
+    {
+      "plugin": "@nx/next/plugin",
+      "options": {
+        "startTargetName": "start",
+        "buildTargetName": "build",
+        "devTargetName": "dev",
+        "serveStaticTargetName": "serve-static",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
     }
   ],
   "targetDefaults": {
@@ -93,7 +104,7 @@
     }
   },
   "release": {
-    "projects": ["packages/js", "packages/vue", "packages/nuxt", "packages/react"],
+    "projects": ["packages/js", "packages/vue", "packages/nuxt", "packages/react", "packages/next"],
     "version": {
       "specifierSource": "conventional-commits",
       "currentVersionResolver": "git-tag",
@@ -131,6 +142,12 @@
       },
       "component": {
         "style": "none"
+      }
+    },
+    "@nx/next": {
+      "application": {
+        "style": "none",
+        "linter": "none"
       }
     }
   }
