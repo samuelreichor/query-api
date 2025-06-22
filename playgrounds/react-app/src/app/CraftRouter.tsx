@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { CraftPage, useCraftInstance, useCraftUrlBuilder } from '@query-api/react'
+import { CraftPage, getCraftInstance, createCraftUrl } from '@query-api/react'
 
 export default function CraftRouter() {
   const { '*': params } = useParams()
   const uri = params !== '' ? params : '__home__'
 
-  const { authToken } = useCraftInstance()
-  const apiUrl = useCraftUrlBuilder('entries').uri(uri).buildUrl('one')
+  const { authToken } = getCraftInstance()
+  const apiUrl = createCraftUrl('entries').uri(uri).buildUrl('one')
   const [data, setData] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)

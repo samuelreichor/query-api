@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCraftInstance } from '../composables/useApi'
+import { getCraftInstance } from '../functions/getInstance'
 import type { ContentMapping, CraftOptions, CraftPageEntry, HandledErrorCodes } from '../types'
 
 function handleError(
@@ -80,7 +80,7 @@ type Props = {
 }
 
 const CraftPage: React.FC<Props> = ({ content }) => {
-  const PageComponent = resolvePageComponent(useCraftInstance(), content as CraftPageEntry)
+  const PageComponent = resolvePageComponent(getCraftInstance(), content as CraftPageEntry)
   return <PageComponent {...content} />
 }
 

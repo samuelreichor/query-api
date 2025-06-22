@@ -4,8 +4,8 @@ import CraftNotImplemented from './components/CraftNotImplemented'
 import type { CraftOptions } from './types'
 
 export { CraftArea, CraftPage, CraftNotImplemented }
-export * from './composables/useApi'
-export * from './composables/useCraftUrlBuilder'
+export * from './functions/getInstance'
+export * from './functions/createCraftUrl'
 export * from './types'
 
 export const siteDetectionModes = {
