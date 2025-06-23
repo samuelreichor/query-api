@@ -1,3 +1,10 @@
+## 0.4.0-alpha4 (2025-06-23)
+
+### 🩹 Fixes
+
+- **react:** Fix broken link in readme
+  ([b942ed3](https://github.com/samuelreichor/query-api/commit/b942ed3))
+
 ## 0.4.0-alpha3.0 (2025-06-22)
 
 ### 🩹 Fixes
