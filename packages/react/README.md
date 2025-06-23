@@ -29,7 +29,7 @@ npm install @query-api/react
 
 > [!TIP]
 >
-> [Documentation](https://samuelreichor/libraries/query-api-react)
+> [Documentation](https://samuelreichor.at/libraries/query-api-react)
 
 ## Features
 
