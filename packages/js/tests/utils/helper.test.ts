@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { getPreviewParams } from '../../src/utils/helper.js'
+import { getPreviewParams } from '../../src/utils/helper'
 describe('query-api/js - helper tests', () => {
   describe('getPreviewParams - Return preview tokens in query param format', () => {
     it('Should filter out the correct preview tokens and return it as query params', () => {

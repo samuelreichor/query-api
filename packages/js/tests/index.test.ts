@@ -1,6 +1,6 @@
 import { buildCraftQueryUrl } from '../src/index'
 import { describe, it, expect } from 'vitest'
-import type { ElementType, ExecutionMethod } from '../src/index.js'
+import type { ElementType, ExecutionMethod } from '../src/index'
 
 describe('query-api/js - index tests', () => {
   describe('buildCraftQueryUrl - CommonQueryBuilder', () => {

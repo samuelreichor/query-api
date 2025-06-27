@@ -1,3 +1,5 @@
+import { PREVIEW_PARAMS } from '../constants'
+
 export function getPreviewParams(
   searchParams: Record<string, string> | string = '',
 ): string | null {
@@ -6,10 +8,9 @@ export function getPreviewParams(
     searchParams = window.location.search
   }
   const urlParams = new URLSearchParams(searchParams)
-  const previewKeys = ['x-craft-preview', 'x-craft-live-preview', 'token']
 
   const filteredKeys = Object.entries(Object.fromEntries(urlParams)).filter(([key]) =>
-    previewKeys.includes(key),
+    PREVIEW_PARAMS.includes(key),
   )
 
   if (!filteredKeys.length) {
