@@ -1,5 +1,6 @@
 import { getPreviewParams } from './utils/helper.js'
-export { getPreviewParams }
+import { PREVIEW_PARAMS } from './constants'
+export { getPreviewParams, PREVIEW_PARAMS }
 export type ElementType = 'addresses' | 'assets' | 'entries' | 'users'
 export type ExecutionMethod = 'all' | 'one'
 export type Operator = 'and' | 'not' | 'or' | null
