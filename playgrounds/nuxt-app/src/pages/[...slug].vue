@@ -55,15 +55,15 @@ const { data: craftAssetQuery2 } = useCraftQuery<BaseResT, 'assets'>('assets')
   .volume('images')
   .one()
 
-console.log(
+console.debug(
   craftEntry1.value,
-  craftEntry2.value,
+  craftEntry2.value?.metadata,
   craftAsset1.value,
-  craftAsset2.value,
+  craftAsset2.value?.metadata,
   craftEntryQuery1.value,
-  craftEntryQuery2.value,
+  craftEntryQuery2.value?.metadata,
   craftAssetQuery1.value,
-  craftAssetQuery2.value,
+  craftAssetQuery2.value?.metadata,
 )
 
 const { data, error } = useCraftQuery<BaseResT, 'entries'>('entries')
@@ -74,8 +74,6 @@ const { data, error } = useCraftQuery<BaseResT, 'entries'>('entries')
 if (error.value) {
   console.error(error.value)
 }
-
-console.log(data.value?.metadata)
 </script>
 
 <template>

@@ -1,19 +1,15 @@
 import CraftPage from './components/CraftPage.vue'
 import CraftArea from './components/CraftArea.vue'
 import CraftNotImplemented from './components/CraftNotImplemented.vue'
+import { SITE_DETECTION_MODES } from '@query-api/js'
 import type { App } from 'vue'
 import type { CraftCmsOptions } from './types'
 
 export * from './composables/useCraftUrlBuilder'
 export * from './composables/useApi'
 export * from './types'
-
+export * from '@query-api/js'
 export { CraftPage, CraftArea, CraftNotImplemented }
-
-export const siteDetectionModes = {
-  PATH: 'path',
-  ORIGIN: 'origin',
-} as const
 
 export const defaultCraftOptions: CraftCmsOptions = {
   baseUrl: '',
@@ -22,7 +18,7 @@ export const defaultCraftOptions: CraftCmsOptions = {
   debug: false,
   enableEntryTypeMapping: true,
   siteMap: [],
-  siteDetectionMode: siteDetectionModes.PATH,
+  siteDetectionMode: SITE_DETECTION_MODES.PATH,
 }
 
 export const CraftCms = {
