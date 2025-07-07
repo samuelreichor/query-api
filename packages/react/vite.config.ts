@@ -25,17 +25,19 @@ export default defineConfig(() => ({
       transformMixedEsModules: true,
     },
     lib: {
-      // Could also be a dictionary or array of multiple entry points.
-      entry: 'src/index.ts',
+      // Multiple entry points for the library build
+      entry: {
+        index: 'src/index.ts',
+        core: 'src/core.ts',
+        react: 'src/react.ts',
+      },
       name: '@query-api/react',
-      fileName: 'index',
-      // Change this to the formats you want to support.
-      // Don't forget to update your package.json as well.
+      fileName: (format, entryName) => `${entryName}.js`,
       formats: ['es' as const],
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'react-router', '@query-api/js'],
     },
   },
   test: {

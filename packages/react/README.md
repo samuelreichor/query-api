@@ -33,14 +33,16 @@ npm install @query-api/react
 
 ## Features
 
-- **Craft CMS query url builder:** Easily build urls for the Craft Query API plugin directly from
-  React, enabling flexible, real-time data retrieval from Craft CMS
+- **Query builder:** Easily build and execute queries directly from Next, enabling flexible,
+  real-time data retrieval from Craft CMS
 - **Built in Helper Components:** Connect your data directly with your React components, to speed up
   development.
 - **Get Only the Data You Need:** Avoid overfetching by using a custom function in the query builder
   to select only the fields you require.
 - **Pretty Json:** Json Transformer are in place to prettify the response.
-- **Support for main Element Types:** Query addresses, assets, entries and users.
+- **Support for Main Element Types:** Query addresses, assets, entries and users.
+- **Full Typescript Suppport**: Craft Query Builder with typescript support pretty cool hah?😎
+- **Multisite Helper Hooks**: Built in hooks and functions to support Craft Multisites with ease.
 
 ## Requirements
 
