@@ -19,7 +19,3 @@ export function getPreviewParams(
 
   return filteredKeys.map((val) => val.join('=')).join('&')
 }
-
-export type Prettify<T> = {
-  [K in keyof T]: T[K]
-} & {}
