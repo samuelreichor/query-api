@@ -1,6 +1,6 @@
 import React from 'react'
-import { getCraftInstance } from '../functions/getInstance'
 import type { ContentMapping, CraftOptions, CraftPageEntry, HandledErrorCodes } from '../types'
+import { getCraftInstance } from '../functions/getInstance'
 
 function handleError(
   contentMapping: ContentMapping,
@@ -24,6 +24,11 @@ function resolvePageComponent(
   content: CraftPageEntry,
 ): React.ElementType {
   const contentMapping = craftOptions.contentMapping
+  if (!contentMapping) {
+    throw new Error(
+      "You can't use getContentMapping if you're not loading craftInit and provide a valid contentMapping.",
+    )
+  }
   const { pages } = contentMapping
   if (!pages) {
     throw new Error(
@@ -51,8 +56,8 @@ function resolvePageComponent(
   const entryType = content.metadata?.entryType ?? 'default'
   const enableTypeMap = craftOptions.enableEntryTypeMapping ?? false
 
-  // Try section:entryType
-  if (enableTypeMap && entryType !== 'default' && entryType !== section) {
+  // Try section:entryType when enableTypeMap is true
+  if (enableTypeMap) {
     const key = `${section}:${entryType}`
     const Page = pages[key]
     if (Page) {
@@ -60,10 +65,9 @@ function resolvePageComponent(
     }
   }
 
-  // Try section
-  const Page = pages[section]
-  if (Page) {
-    return Page
+  const FallbackPage = pages[section]
+  if (FallbackPage) {
+    return FallbackPage
   }
 
   const baseErrMsg = `No mapped page found for section handle "${section}"`
