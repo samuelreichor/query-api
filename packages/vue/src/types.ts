@@ -1,5 +1,5 @@
 import type { DefineComponent } from 'vue'
-import { siteDetectionModes } from './index'
+import type { SiteDetectionMode, CraftSites, Prettify } from '@query-api/js'
 
 export type CraftPageEntry = {
   metadata: { entryType?: string }
@@ -31,20 +31,6 @@ export type ContentMapping = {
  */
 export type Config = ContentMapping
 
-export type CraftSite = {
-  handle: string
-  origin: string
-  path: string
-  id?: number
-  label?: string
-  lang?: string
-  primary?: boolean
-}
-
-export type CraftSites = CraftSite[]
-
-export type SiteDetectionMode = (typeof siteDetectionModes)[keyof typeof siteDetectionModes]
-
 export type CraftCmsOptions = {
   baseUrl: string
   authToken: string
@@ -54,7 +40,3 @@ export type CraftCmsOptions = {
   siteMap?: CraftSites
   siteDetectionMode?: SiteDetectionMode
 }
-
-type Prettify<T> = {
-  [K in keyof T]: T[K]
-} & {}

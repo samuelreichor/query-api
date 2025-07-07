@@ -1,6 +1,5 @@
-import type { ElementType, ExecutionMethod, QueryBuilder } from '@query-api/js'
-import { buildCraftQueryUrl, getPreviewParams } from '@query-api/js'
-import type { CraftCmsOptions } from '@query-api/vue'
+import { buildCraftQueryUrl, getPreviewParams } from '@query-api/vue'
+import type { CraftCmsOptions, ElementType, ExecutionMethod, QueryBuilder } from '@query-api/vue'
 import { useAsyncData, useRuntimeConfig, useRoute } from 'nuxt/app'
 import type { AsyncData, NuxtError } from 'nuxt/app'
 import type { LocationQuery } from 'vue-router'

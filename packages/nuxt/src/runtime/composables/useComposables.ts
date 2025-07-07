@@ -1,29 +1,36 @@
-import { siteDetectionModes, type CraftCmsOptions, type SiteDetectionMode } from '@query-api/vue'
-import { getPreviewParams } from '@query-api/js'
+import type { CraftCmsOptions, SiteDetectionMode } from '@query-api/vue'
+import {
+  getPreviewParams,
+  normalizeBearerToken,
+  getCurrentSite,
+  getSiteUri,
+  SITE_DETECTION_MODES,
+} from '@query-api/vue'
 import { defu } from 'defu'
 import { useRuntimeConfig, useRoute, createError, useRequestURL, useFetch } from 'nuxt/app'
 import type { UseFetchOptions } from 'nuxt/app'
 import { computed, unref } from 'vue'
 import type { Ref } from 'vue'
-import { getBearerToken, getCurrentSite, getSiteUri } from '../utils/helper'
 
 export function useCraftCurrentSite() {
   const { siteMap, siteDetectionMode } = useRuntimeConfig().public
     .craftcms as Required<CraftCmsOptions>
   if (!siteMap || siteMap.length === 0) {
-    throw createError({ statusCode: 500, statusMessage: 'Invalid sitemap in app.config.ts' })
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'Invalid sitemap configuration in nuxt.config.ts',
+    })
   }
 
   const url = useUrlByMatching(siteDetectionMode)
-  return computed(() => getCurrentSite(siteMap, url, siteDetectionMode))
+  return computed(() => getCurrentSite(siteMap, url.value, siteDetectionMode))
 }
 
 export function useCraftUri() {
   const { siteDetectionMode } = useRuntimeConfig().public.craftcms as Required<CraftCmsOptions>
   const currentSite = useCraftCurrentSite()
-  return computed(() =>
-    getSiteUri(useUrlByMatching(siteDetectionMode), currentSite, siteDetectionMode),
-  )
+  const url = useUrlByMatching(siteDetectionMode)
+  return computed(() => getSiteUri(url.value, currentSite.value, siteDetectionMode))
 }
 
 export function useCraftFetch<T>(
@@ -60,7 +67,7 @@ export function useCraftAuthToken() {
     })
   }
 
-  return getBearerToken(authToken)
+  return normalizeBearerToken(authToken)
 }
 
 function useUrlByMatching(mode: SiteDetectionMode) {
@@ -68,5 +75,5 @@ function useUrlByMatching(mode: SiteDetectionMode) {
   const route = useRoute()
   const fullUrl = computed(() => useRequest.href)
   const fullPath = computed(() => route.path)
-  return mode === siteDetectionModes.PATH ? fullPath : fullUrl
+  return mode === SITE_DETECTION_MODES.PATH ? fullPath : fullUrl
 }
