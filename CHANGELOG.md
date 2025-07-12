@@ -1,3 +1,14 @@
+## 0.4.0-alpha4.0 (2025-07-12)
+
+### 🚀 Features
+
+- **js:** Add constants and fix some small ts config issues
+  ([ef0b10d](https://github.com/samuelreichor/query-api/commit/ef0b10d))
+- **next:** Add next package and playground
+  ([f75df4a](https://github.com/samuelreichor/query-api/commit/f75df4a))
+- **react:** Add useful hooks and move away from singleton pattern
+  ([1190d61](https://github.com/samuelreichor/query-api/commit/1190d61))
+
 ## 0.4.0-alpha4 (2025-06-23)
 
 ### 🩹 Fixes
