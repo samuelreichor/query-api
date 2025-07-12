@@ -1,3 +1,12 @@
+## 0.4.0-alpha4.0 (2025-07-12)
+
+### 🚀 Features
+
+- **next:** Add next package and playground
+  ([f75df4a](https://github.com/samuelreichor/query-api/commit/f75df4a))
+- **js:** Add constants and fix some small ts config issues
+  ([ef0b10d](https://github.com/samuelreichor/query-api/commit/ef0b10d))
+
 ## 0.4.0-alpha4 (2025-06-23)
 
 This was a version bump only for @query-api/js to align it with other projects, there were no code
