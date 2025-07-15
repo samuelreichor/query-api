@@ -1,3 +1,15 @@
+## 0.4.1 (2025-07-15)
+
+### 🚀 Features
+
+- **next:** Add next package and playground
+  ([e32dd16](https://github.com/samuelreichor/query-api/commit/e32dd16))
+
+### 🩹 Fixes
+
+- **nuxt:** Fix missing exports of js and vue types
+  ([b720844](https://github.com/samuelreichor/query-api/commit/b720844))
+
 ## 0.4.0 (2025-07-12)
 
 This was a version bump only for @query-api/nuxt to align it with other projects, there were no code
