@@ -1,10 +1,5 @@
 ## 0.4.1 (2025-07-15)
 
-### 🚀 Features
-
-- **next:** Add next package and playground
-  ([e32dd16](https://github.com/samuelreichor/query-api/commit/e32dd16))
-
 ### 🩹 Fixes
 
 - **nuxt:** Fix missing exports of js and vue types

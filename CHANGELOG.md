@@ -1,14 +1,5 @@
 ## 0.4.1 (2025-07-15)
 
-### 🚀 Features
-
-- **js:** Add constants and fix some small ts config issues
-  ([e0f14e3](https://github.com/samuelreichor/query-api/commit/e0f14e3))
-- **next:** Add next package and playground
-  ([e32dd16](https://github.com/samuelreichor/query-api/commit/e32dd16))
-- **react:** Add useful hooks and move away from singleton pattern
-  ([7ca59d5](https://github.com/samuelreichor/query-api/commit/7ca59d5))
-
 ### 🩹 Fixes
 
 - **nuxt:** Fix missing exports of js and vue types
