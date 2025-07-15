@@ -36,7 +36,7 @@ function getEntryTypeHandle() {
 
 function getCurrentPage() {
   if (!props.config || !('pages' in props.config)) {
-    throw new Error('Configuration is missing pages or invalid. Check your config object.')
+    throw new Error('Configuration is missing pages or invalid. Check your contentMapping object.')
   }
 
   if (!('sectionHandle' in props.content)) {
@@ -50,28 +50,22 @@ function getCurrentPage() {
   const entryTypeHandle = getEntryTypeHandle()
   const { enableEntryTypeMapping } = inject<CraftCmsOptions>('CraftCmsOptions')!
 
-  if (
-    currentSectionHandle !== entryTypeHandle &&
-    entryTypeHandle !== 'default' &&
-    enableEntryTypeMapping
-  ) {
-    const pageComponent = props.config.pages[`${currentSectionHandle}:${entryTypeHandle}`]
-
-    if (!pageComponent) {
-      console.error(
-        `No mapped Page found for section handle "${currentSectionHandle}" with entrytype handle "${entryTypeHandle}". `,
-      )
+  if (enableEntryTypeMapping) {
+    const key = `${currentSectionHandle}:${entryTypeHandle}`
+    const Page = props.config.pages[key]
+    if (Page) {
+      return Page
     }
-    return pageComponent
   }
 
-  const pageComponent = props.config.pages[currentSectionHandle]
-
-  if (!pageComponent) {
-    console.error(`No mapped Page found for section handle: ${currentSectionHandle}`)
+  const FallbackPage = props.config.pages[currentSectionHandle]
+  if (FallbackPage) {
+    return FallbackPage
   }
 
-  return pageComponent
+  const baseErrMsg = `No mapped page found for section handle "${currentSectionHandle}"`
+  const entryTypeErrMsg = `${baseErrMsg} with entry type handle "${entryTypeHandle}"`
+  return handleError('404', enableEntryTypeMapping ? `${entryTypeErrMsg}.` : `${baseErrMsg}.`)
 }
 
 provide('config', props.config)
