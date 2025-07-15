@@ -1,5 +1,7 @@
 import { addPlugin, defineNuxtModule, addImports, addComponent, createResolver } from '@nuxt/kit'
 import { defaultCraftOptions, type CraftCmsOptions } from '@query-api/vue'
+export type { ContentMapping } from '@query-api/vue'
+export * from '@query-api/js'
 
 export default defineNuxtModule<Required<CraftCmsOptions>>({
   meta: {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ContentMapping } from '@query-api/vue'
+import type { ContentMapping } from '@query-api/nuxt'
 import { CraftPage } from '@query-api/vue'
 import Home from '../templates/pages/home.vue'
 import News from '../templates/pages/news.vue'
