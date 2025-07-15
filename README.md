@@ -19,6 +19,7 @@ consistency between various JavaScript environments.
 - [`@query-api/vue`](/packages/vue): SDK for Vue.
 - [`@query-api/nuxt`](/packages/nuxt): SDK for Nuxt.
 - [`@query-api/react`](/packages/react): SDK for React.
+- [`@query-api/next`](/packages/next): SDK for Next.
 
 ## Support
 
