@@ -1,3 +1,10 @@
+## 0.4.2 (2025-07-16)
+
+### 🩹 Fixes
+
+- **vue:** Fix issue with section:entryType contentMapping logic in CraftPage
+  ([b41980f](https://github.com/samuelreichor/query-api/commit/b41980f))
+
 ## 0.4.1 (2025-07-15)
 
 ### 🩹 Fixes
