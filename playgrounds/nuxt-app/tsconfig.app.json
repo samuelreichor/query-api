@@ -17,10 +17,10 @@
       "path": "../../packages/vue/tsconfig.lib.json"
     },
     {
-      "path": "../common/tsconfig.lib.json"
+      "path": "../../packages/nuxt/tsconfig.lib.json"
     },
     {
-      "path": "../../packages/nuxt/tsconfig.lib.json"
+      "path": "../common/tsconfig.lib.json"
     }
   ]
 }

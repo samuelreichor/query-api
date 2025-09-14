@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useCraftQuery } from '../../../.nuxt/imports'
-
+import ImageText from '../../templates/components/imageText.vue'
+import Headline from '../../templates/components/headline.vue'
 const props = defineProps({
   metadata: {
     type: Object,
@@ -45,12 +46,21 @@ const { data, error } = await useCraftQuery('entries')
 if (error.value) {
   console.error(error.value)
 }
+
+const blockMapping = {
+  imageText: ImageText,
+  headline: Headline,
+}
 </script>
 
 <template>
   <div>
     <h1>{{ props.title }}</h1>
-    <CraftArea v-if="props.contentBuilder" :content="props.contentBuilder" />
+    <CraftArea
+      v-if="props.contentBuilder"
+      :content="props.contentBuilder"
+      :block-mapping="blockMapping"
+    />
 
     <h2>Related News</h2>
     <ul>

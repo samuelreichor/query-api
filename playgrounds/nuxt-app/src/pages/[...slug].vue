@@ -3,8 +3,7 @@ import type { ContentMapping } from '@query-api/nuxt'
 import { CraftPage } from '@query-api/vue'
 import Home from '../templates/pages/home.vue'
 import News from '../templates/pages/news.vue'
-import ImageText from '../templates/components/imageText.vue'
-import Headline from '../templates/components/headline.vue'
+
 import {
   useCraftCurrentSite,
   useCraftUri,
@@ -17,10 +16,6 @@ const mapping: ContentMapping = {
   pages: {
     home: Home,
     'news:home': News,
-  },
-  components: {
-    imageText: ImageText,
-    headline: Headline,
   },
 }
 
@@ -69,6 +64,7 @@ console.debug(
 const { data, error } = useCraftQuery<BaseResT, 'entries'>('entries')
   .uri(uri.value)
   .site(currentSite.value.handle)
+  .includeFullEntry(true)
   .one()
 
 if (error.value) {
