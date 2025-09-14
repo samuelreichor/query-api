@@ -210,7 +210,11 @@ export function buildCraftQueryUrl<T extends ElementType>(
       const queryParams = Object.fromEntries(
         Object.entries(params)
           .filter(([, value]) => value !== undefined && value != '')
-          .map(([key, value]) => [key, String(value)]),
+          .map(([key, value]) => {
+            if (value === true) return [key, '1']
+            if (value === false) return [key, '0']
+            return [key, String(value)]
+          }),
       )
 
       const queryString = new URLSearchParams(queryParams).toString()
