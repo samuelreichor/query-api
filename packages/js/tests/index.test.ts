@@ -16,6 +16,7 @@ describe('query-api/js - index tests', () => {
         .offset(2)
         .orderBy('name')
         .fields(['title', 'heroImage'])
+        .includeFullEntry(true)
         .search('q')
 
       arrOfExecutionTypes.forEach((executionType) => {
@@ -23,7 +24,7 @@ describe('query-api/js - index tests', () => {
           const queryUrlOne = baseQuery.buildBaseUrl(executionType)
 
           expect(queryUrlOne).toContain(
-            `elementType=${elementType}&id=12%2C34%2Cnot&limit=5&offset=2&orderBy=name&fields=title%2CheroImage&search=q&${executionType}=1`,
+            `elementType=${elementType}&id=12%2C34%2Cnot&limit=5&offset=2&orderBy=name&fields=title%2CheroImage&includeFullEntry=1&search=q&${executionType}=1`,
           )
         })
       })

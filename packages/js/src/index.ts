@@ -31,6 +31,7 @@ export interface CommonQueryParams {
   orderBy?: string
   fields?: string | string[]
   search?: string
+  includeFullEntry: boolean
 }
 
 // Specific query parameters for each element type
@@ -94,6 +95,7 @@ export interface CommonQueryBuilder {
   orderBy: (value: CommonQueryParams['orderBy']) => this
   fields: (value: CommonQueryParams['fields']) => this
   search: (value: CommonQueryParams['search']) => this
+  includeFullEntry: (value: CommonQueryParams['includeFullEntry']) => this
   buildBaseUrl: (value: ExecutionMethod) => string
 }
 
@@ -195,6 +197,10 @@ export function buildCraftQueryUrl<T extends ElementType>(
     },
     search(value) {
       params.search = value
+      return this
+    },
+    includeFullEntry(value) {
+      params.includeFullEntry = value
       return this
     },
     buildBaseUrl(value) {
