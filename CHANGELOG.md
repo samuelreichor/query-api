@@ -1,3 +1,17 @@
+## 0.5.0 (2025-09-14)
+
+### 🚀 Features
+
+- **js:** Add includeFullEntry property
+  ([65a0e47](https://github.com/samuelreichor/query-api/commit/65a0e47))
+- **vue:** Add block mapping prop to craft area to enhance flexibility
+  ([ec32b4b](https://github.com/samuelreichor/query-api/commit/ec32b4b))
+
+### 🩹 Fixes
+
+- **js:** Fix wrong types when using boolean in urls
+  ([e5e647f](https://github.com/samuelreichor/query-api/commit/e5e647f))
+
 ## 0.4.2 (2025-07-16)
 
 ### 🩹 Fixes

@@ -1,3 +1,10 @@
+## 0.5.0 (2025-09-14)
+
+### 🚀 Features
+
+- **vue:** Add block mapping prop to craft area to enhance flexibility
+  ([ec32b4b](https://github.com/samuelreichor/query-api/commit/ec32b4b))
+
 ## 0.4.2 (2025-07-16)
 
 ### 🩹 Fixes
