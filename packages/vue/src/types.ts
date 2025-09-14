@@ -12,18 +12,22 @@ export type CraftAreaComponent = {
   [key: string]: unknown
 }
 
-export type ContentMapping = {
-  pages: Prettify<
-    {
-      [key: string]: Record<string, DefineComponent>
-    } & {
-      Page404?: Record<string, DefineComponent>
-      Error?: Record<string, DefineComponent>
-    }
-  >
-  components: {
+export type PageMapping = Prettify<
+  {
     [key: string]: Record<string, DefineComponent>
+  } & {
+    Page404?: Record<string, DefineComponent>
+    Error?: Record<string, DefineComponent>
   }
+>
+
+export type ComponentMapping = {
+  [key: string]: Record<string, DefineComponent>
+}
+
+export type ContentMapping = {
+  pages: PageMapping
+  components?: ComponentMapping
 }
 
 /**

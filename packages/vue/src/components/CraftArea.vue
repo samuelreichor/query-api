@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ContentMapping, CraftAreaComponent } from '../types'
+import type { ContentMapping, ComponentMapping, CraftAreaComponent } from '../types'
 import { inject } from 'vue'
 import type { PropType } from 'vue'
 const props = defineProps({
@@ -7,9 +7,15 @@ const props = defineProps({
     type: Array as PropType<unknown[]>,
     required: true,
   },
+  blockMapping: {
+    type: Object as PropType<ComponentMapping>,
+    default: null,
+  },
 })
 
-const config = inject<ContentMapping>('config')
+const config = props.blockMapping
+  ? { components: props.blockMapping }
+  : inject<ContentMapping>('config')
 
 function getCurrentComponent(component: unknown) {
   if (!config || !('components' in config)) {
@@ -23,7 +29,7 @@ function getCurrentComponent(component: unknown) {
   }
 
   const cName = typedComponent.type
-  const componentEl = config.components[cName]
+  const componentEl = config.components?.[cName]
 
   if (!componentEl) {
     console.error(`No mapped component found for component type: ${cName}`)
