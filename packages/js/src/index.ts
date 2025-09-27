@@ -1,4 +1,6 @@
 import { getPreviewParams } from './utils/preview'
+import { RelatedToParam } from './types'
+import { shortenRelationParam } from './utils/relatedTo'
 
 export * from './constants'
 export * from './utils/bearer'
@@ -63,6 +65,7 @@ export interface EntryQueryParams {
   level?: number | (number | Operator)[]
   sectionId?: number | (number | Operator)[]
   type?: string | string[]
+  relatedTo?: string
 }
 
 export interface UserQueryParams {
@@ -128,6 +131,10 @@ export interface EntryQueryBuilder extends CommonQueryBuilder {
   level: (value: EntryQueryParams['level']) => this
   sectionId: (value: EntryQueryParams['sectionId']) => this
   type: (value: EntryQueryParams['type']) => this
+  relatedTo: (value: RelatedToParam) => this
+  andRelatedTo: (value: RelatedToParam) => this
+  notRelatedTo: (value: RelatedToParam) => this
+  andNotRelatedTo: (value: RelatedToParam) => this
 }
 
 export interface UserQueryBuilder extends CommonQueryBuilder {
@@ -339,6 +346,22 @@ export function buildCraftQueryUrl<T extends ElementType>(
       },
       type(value) {
         entryParams.type = value
+        return this
+      },
+      relatedTo(value) {
+        entryParams.relatedTo = JSON.stringify(shortenRelationParam(value))
+        return this
+      },
+      andRelatedTo(value) {
+        entryParams.relatedTo = JSON.stringify(shortenRelationParam(value))
+        return this
+      },
+      notRelatedTo(value) {
+        entryParams.relatedTo = JSON.stringify(shortenRelationParam(value))
+        return this
+      },
+      andNotRelatedTo(value) {
+        entryParams.relatedTo = JSON.stringify(shortenRelationParam(value))
         return this
       },
     } as QueryBuilder<T>

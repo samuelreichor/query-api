@@ -84,10 +84,11 @@ describe('query-api/js - index tests', () => {
         .type(['default', 'contact'])
         .sectionId(4)
         .sectionId([12, 'not'])
+        .relatedTo(['and', 1])
         .buildBaseUrl('one')
 
       expect(queryUrl).toContain(
-        'elementType=entries&slug=my-slug&uri=news%2F2023&section=section%2Csection2&postDate=2023-01-01&site=default&siteId=1&status=and%2Clive%2Cexpired&level=1%2Cnot&type=default%2Ccontact&sectionId=12%2Cnot&one=1',
+        'elementType=entries&slug=my-slug&uri=news%2F2023&section=section%2Csection2&postDate=2023-01-01&site=default&siteId=1&status=and%2Clive%2Cexpired&level=1%2Cnot&type=default%2Ccontact&sectionId=12%2Cnot&relatedTo=%5B%22and%22%2C1%5D&one=1',
       )
     })
   })
@@ -148,6 +149,28 @@ describe('query-api/js - index tests', () => {
 
       // Ensure the query string correctly joins the array
       expect(queryUrl).toContain('elementType=entries&uri=news%2F2023%2Fsports&one=1')
+    })
+  })
+
+  describe('relatedTo - entry query', () => {
+    it('Should execute relatedTo correctly', () => {
+      const queryBuilder = buildCraftQueryUrl('entries')
+      const input = ['and', { sourceElement: 50 }, { targetElement: 75 }]
+      const queryUrl = queryBuilder.relatedTo(input).buildBaseUrl('one')
+
+      expect(queryUrl).toContain(
+        'elementType=entries&relatedTo=%5B%22and%22%2C%7B%22sE%22%3A50%7D%2C%7B%22tE%22%3A75%7D%5D&one=1',
+      )
+    })
+
+    it('Should execute relatedTo correctly', () => {
+      const queryBuilder = buildCraftQueryUrl('entries')
+      const input = ['and', { sourceElement: 1527, field: 'entries' }, ['not', 1527]]
+      const queryUrl = queryBuilder.relatedTo(input).buildBaseUrl('one')
+
+      expect(queryUrl).toContain(
+        'elementType=entries&relatedTo=%5B%22and%22%2C%7B%22sE%22%3A1527%2C%22f%22%3A%22entries%22%7D%2C%5B%22not%22%2C1527%5D%5D&one=1',
+      )
     })
   })
 
