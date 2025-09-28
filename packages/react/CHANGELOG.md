@@ -1,3 +1,8 @@
+## 0.6.0 (2025-09-28)
+
+This was a version bump only for @query-api/react to align it with other projects, there were no
+code changes.
+
 ## 0.5.0 (2025-09-14)
 
 This was a version bump only for @query-api/react to align it with other projects, there were no

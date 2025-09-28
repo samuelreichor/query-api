@@ -1,3 +1,10 @@
+## 0.6.0 (2025-09-28)
+
+### 🚀 Features
+
+- **js:** Add relatedTo function to query builder
+  ([bc5e757](https://github.com/samuelreichor/query-api/commit/bc5e757))
+
 ## 0.5.0 (2025-09-14)
 
 ### 🚀 Features
