@@ -33,7 +33,8 @@ export interface CommonQueryParams {
   orderBy?: string
   fields?: string | string[]
   search?: string
-  includeFullEntry: boolean
+  includeFullEntry?: boolean
+  fixedOrder?: boolean
 }
 
 // Specific query parameters for each element type
@@ -99,6 +100,7 @@ export interface CommonQueryBuilder {
   fields: (value: CommonQueryParams['fields']) => this
   search: (value: CommonQueryParams['search']) => this
   includeFullEntry: (value: CommonQueryParams['includeFullEntry']) => this
+  fixedOrder: (value: CommonQueryParams['fixedOrder']) => this
   buildBaseUrl: (value: ExecutionMethod) => string
 }
 
@@ -208,6 +210,10 @@ export function buildCraftQueryUrl<T extends ElementType>(
     },
     includeFullEntry(value) {
       params.includeFullEntry = value
+      return this
+    },
+    fixedOrder(value) {
+      params.fixedOrder = value
       return this
     },
     buildBaseUrl(value) {
