@@ -222,7 +222,7 @@ export function buildCraftQueryUrl<T extends ElementType>(
       /* TODO: add more error handling */
       const queryParams = Object.fromEntries(
         Object.entries(params)
-          .filter(([, value]) => value !== undefined && value != '')
+          .filter(([, value]) => value !== undefined && value !== '')
           .map(([key, value]) => {
             if (value === true) return [key, '1']
             if (value === false) return [key, '0']
