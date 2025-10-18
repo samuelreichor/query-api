@@ -1,3 +1,8 @@
+## 0.7.0 (2025-10-18)
+
+This was a version bump only for @query-api/nuxt to align it with other projects, there were no code
+changes.
+
 ## 0.6.0 (2025-09-28)
 
 This was a version bump only for @query-api/nuxt to align it with other projects, there were no code

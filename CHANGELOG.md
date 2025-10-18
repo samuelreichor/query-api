@@ -1,3 +1,15 @@
+## 0.7.0 (2025-10-18)
+
+### 🚀 Features
+
+- **js:** Add fixedOrder property to query builder
+  ([d27695c](https://github.com/samuelreichor/query-api/commit/d27695c))
+
+### 🩹 Fixes
+
+- **js:** Fix faulty filtering for false values
+  ([fa8dcc0](https://github.com/samuelreichor/query-api/commit/fa8dcc0))
+
 ## 0.6.0 (2025-09-28)
 
 ### 🚀 Features
