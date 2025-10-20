@@ -25,6 +25,9 @@ console.log(uri.value)
 const currentSite = useCraftCurrentSite()
 console.log(currentSite.value)
 
+const url = useCraftEntry().id(1).buildUrl('all')
+console.log(url)
+
 type BaseResT = {
   metadata: object
 }

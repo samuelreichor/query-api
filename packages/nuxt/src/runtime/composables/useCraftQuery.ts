@@ -67,6 +67,11 @@ export function useCraftQuery<ResT, T extends ElementType>(elementType: T): Retu
   return {
     ...queryBuilder,
 
+    buildUrl(execOpt) {
+      const queryUrl = queryBuilder.buildBaseUrl(execOpt)
+      return constuctUrl(baseUrl, queryUrl, debug, queryParams)
+    },
+
     one() {
       const queryUrl = queryBuilder.buildBaseUrl('one')
       const url = constuctUrl(baseUrl, queryUrl, debug, queryParams)
