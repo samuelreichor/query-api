@@ -1,3 +1,10 @@
+## 0.7.1 (2025-10-20)
+
+### 🩹 Fixes
+
+- **nuxt:** Add missing buildUrl method to query builder
+  ([e160c14](https://github.com/samuelreichor/query-api/commit/e160c14))
+
 ## 0.7.0 (2025-10-18)
 
 ### 🚀 Features
