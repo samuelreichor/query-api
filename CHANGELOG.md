@@ -1,3 +1,10 @@
+## 0.8.0 (2025-11-06)
+
+### 🚀 Features
+
+- **nuxt:** Add caching option with ttl for client navigation
+  ([b91356d](https://github.com/samuelreichor/query-api/commit/b91356d))
+
 ## 0.7.1 (2025-10-20)
 
 ### 🩹 Fixes

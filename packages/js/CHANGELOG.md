@@ -1,3 +1,8 @@
+## 0.8.0 (2025-11-06)
+
+This was a version bump only for @query-api/js to align it with other projects, there were no code
+changes.
+
 ## 0.7.1 (2025-10-20)
 
 This was a version bump only for @query-api/js to align it with other projects, there were no code
