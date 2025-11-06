@@ -26,5 +26,8 @@ export default defineNuxtConfig({
 
   modules: ['@query-api/nuxt'],
 
-  craftcms: baseConfig,
+  craftcms: {
+    ...baseConfig,
+    caching: false,
+  },
 })

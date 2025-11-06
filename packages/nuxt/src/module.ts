@@ -1,9 +1,15 @@
 import { addPlugin, defineNuxtModule, addImports, addComponent, createResolver } from '@nuxt/kit'
-import { defaultCraftOptions, type CraftCmsOptions } from '@query-api/vue'
+import { defaultCraftOptions } from '@query-api/vue'
+import type { QueryApiOptions } from './types'
 export type { ContentMapping } from '@query-api/vue'
 export * from '@query-api/js'
 
-export default defineNuxtModule<Required<CraftCmsOptions>>({
+const queryApiOptions: QueryApiOptions = {
+  ...defaultCraftOptions,
+  caching: false,
+}
+
+export default defineNuxtModule<Required<QueryApiOptions>>({
   meta: {
     name: '@query-api/nuxt',
     configKey: 'craftcms',
@@ -12,7 +18,7 @@ export default defineNuxtModule<Required<CraftCmsOptions>>({
     },
   },
   // Default configuration options of the Nuxt module
-  defaults: defaultCraftOptions,
+  defaults: queryApiOptions,
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url)
 

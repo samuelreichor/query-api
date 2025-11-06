@@ -1,20 +1,9 @@
 import { buildCraftQueryUrl, getPreviewParams } from '@query-api/vue'
 import type { CraftCmsOptions, ElementType, ExecutionMethod, QueryBuilder } from '@query-api/vue'
-import { useAsyncData, useRuntimeConfig, useRoute } from 'nuxt/app'
+import { useRuntimeConfig, useRoute } from 'nuxt/app'
 import type { AsyncData, NuxtError } from 'nuxt/app'
 import type { LocationQuery } from 'vue-router'
-import { useCraftAuthToken } from './useComposables'
-
-function fetchFn<ResT>(url: string) {
-  const authToken = useCraftAuthToken()
-  return useAsyncData<ResT>(`craftcms:${url}`, () =>
-    $fetch(url, {
-      headers: {
-        Authorization: authToken,
-      },
-    }),
-  )
-}
+import { useCraftFetch } from './useComposables'
 
 function constuctUrl(
   baseUrl: string,
@@ -75,13 +64,13 @@ export function useCraftQuery<ResT, T extends ElementType>(elementType: T): Retu
     one() {
       const queryUrl = queryBuilder.buildBaseUrl('one')
       const url = constuctUrl(baseUrl, queryUrl, debug, queryParams)
-      return fetchFn<ResT>(url)
+      return useCraftFetch<ResT>(url)
     },
 
     all() {
       const queryUrl = queryBuilder.buildBaseUrl('all')
       const url = constuctUrl(baseUrl, queryUrl, debug, queryParams)
-      return fetchFn<ResT>(url)
+      return useCraftFetch<ResT>(url)
     },
   } as ReturnType<ResT, T>
 }

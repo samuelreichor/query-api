@@ -10,6 +10,10 @@ import {
   useCraftEntry,
   useCraftQuery,
   useCraftAsset,
+  useCraftSeoMatic,
+  watch,
+  computed,
+  useHead,
 } from '../../.nuxt/imports'
 
 const mapping: ContentMapping = {
@@ -73,6 +77,12 @@ const { data, error } = useCraftQuery<BaseResT, 'entries'>('entries')
 if (error.value) {
   console.error(error.value)
 }
+const { data: seoData } = useCraftSeoMatic()
+
+const title = computed(() => seoData.value?.title ?? '')
+useHead({
+  title,
+})
 </script>
 
 <template>
