@@ -11,7 +11,6 @@ import {
   useCraftQuery,
   useCraftAsset,
   useCraftSeoMatic,
-  watch,
   computed,
   useHead,
 } from '../../.nuxt/imports'
