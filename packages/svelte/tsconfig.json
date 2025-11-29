@@ -1,5 +1,5 @@
 {
-	"extends": "../../tsconfig.base.json",
+	"extends": "./.svelte-kit/tsconfig.json",
 	"files": [],
 	"references": [
 		{
@@ -13,9 +13,15 @@
 		}
 	],
 	"compilerOptions": {
-		"paths": {
-			"$lib": ["./src/lib"],
-			"$lib/*": ["./src/lib/*"]
-		}
-	}
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
 }

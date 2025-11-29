@@ -1,14 +1,14 @@
 /// <reference types='vitest' />
 import { defineConfig, type Plugin } from 'vitest/config'
 import dts from 'vite-plugin-dts'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { sveltekit } from '@sveltejs/kit/vite'
 import * as path from 'path'
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/packages/svelte',
   plugins: [
-    svelte(),
+    sveltekit(),
     dts({ entryRoot: 'src', tsconfigPath: path.join(__dirname, 'tsconfig.lib.json') }),
   ] as Plugin[],
   build: {
@@ -28,7 +28,13 @@ export default defineConfig({
     },
     rollupOptions: {
       // External packages that should not be bundled into your library.
-      external: ['svelte', '@query-api/js'],
+      external: [
+        'svelte',
+        'svelte/internal',
+        'svelte/internal/client',
+        'svelte/internal/server',
+        '@query-api/js',
+      ],
     },
   },
   test: {

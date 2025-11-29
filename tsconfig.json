@@ -29,9 +29,6 @@
     },
     {
       "path": "./playgrounds/next-app"
-    },
-    {
-      "path": "./packages/svelte"
     }
   ]
 }
