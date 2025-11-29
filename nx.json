@@ -41,7 +41,8 @@
         "typecheckTargetName": "typecheck",
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
-      }
+      },
+      "exclude": ["packages/svelte/*"]
     },
     {
       "plugin": "@nx/eslint/plugin",

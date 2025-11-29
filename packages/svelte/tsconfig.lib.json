@@ -1,0 +1,35 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "dist",
+		"rootDir": "src",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo"
+	},
+	"exclude": [
+		"out-tsc",
+		"dist",
+		"src/**/__tests__/*",
+		"src/**/*.spec.svelte",
+		"src/**/*.test.svelte",
+		"vite.config.ts",
+		"vite.config.mts",
+		"vitest.config.ts",
+		"vitest.config.mts",
+		"src/**/*.test.ts",
+		"src/**/*.spec.ts",
+		"src/**/*.test.js",
+		"src/**/*.spec.js",
+		"eslint.config.mjs",
+		"eslint.config.cjs",
+		"eslint.config.mjs"
+	],
+	"include": ["src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
+	"references": [
+		{
+			"path": "../js/tsconfig.lib.json"
+		}
+	]
+}
