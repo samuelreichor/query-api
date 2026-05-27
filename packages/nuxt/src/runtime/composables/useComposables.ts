@@ -62,7 +62,7 @@ export function useCraftFetch<T>(
         }
       }
       defaults.getCachedData = (key, nuxtApp) => {
-        if (previewParams) return
+        if (previewParams && !nuxtApp.isHydrating) return
 
         const data = nuxtApp.payload.data[key] || nuxtApp.static.data[key]
         if (!data) {
@@ -80,7 +80,7 @@ export function useCraftFetch<T>(
       }
     } else {
       defaults.getCachedData = (key, nuxtApp) => {
-        if (previewParams) return
+        if (previewParams && !nuxtApp.isHydrating) return
         return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
       }
     }
