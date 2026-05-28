@@ -13,7 +13,7 @@ import {
   useCraftSeoMatic,
   computed,
   useHead,
-} from '../../.nuxt/imports'
+} from '#imports'
 
 const mapping: ContentMapping = {
   pages: {

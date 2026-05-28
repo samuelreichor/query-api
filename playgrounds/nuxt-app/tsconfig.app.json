@@ -8,9 +8,14 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo",
+    "paths": {
+      "#imports": [".nuxt/imports"],
+      "#app": ["../../node_modules/nuxt/dist/app"],
+      "#app/*": ["../../node_modules/nuxt/dist/app/*"]
+    }
   },
-  "include": [".nuxt/nuxt.d.ts", "src/**/*", "nuxt.config.ts"],
+  "include": [".nuxt/nuxt.d.ts", ".nuxt/nuxt.node.d.ts", "src/**/*", "nuxt.config.ts"],
   "exclude": ["out-tsc", "dist", "eslint.config.js", "eslint.config.cjs", "eslint.config.mjs"],
   "references": [
     {

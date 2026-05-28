@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useCraftQuery } from '../../../.nuxt/imports'
+import { useCraftQuery } from '#imports'
 import ImageText from '../../templates/components/imageText.vue'
 import Headline from '../../templates/components/headline.vue'
 const props = defineProps({
