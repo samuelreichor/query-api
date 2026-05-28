@@ -1,0 +1,6 @@
+{
+	"/": [],
+	"/[...slug]": [
+		"src/routes/[...slug]/+page.server.ts"
+	]
+}

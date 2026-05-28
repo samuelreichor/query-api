@@ -1,0 +1,23 @@
+{
+  "name": "sveltekit-app",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@query-api/svelte": "*"
+  },
+  "nx": {
+    "implicitDependencies": ["@query-api/svelte"],
+    "targets": {
+      "build": {
+        "dependsOn": ["^build"]
+      }
+    }
+  }
+}

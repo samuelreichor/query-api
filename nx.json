@@ -42,7 +42,7 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       },
-      "exclude": ["packages/svelte/*"]
+      "exclude": ["packages/svelte/*", "playgrounds/sveltekit-app/*"]
     },
     {
       "plugin": "@nx/eslint/plugin",

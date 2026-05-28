@@ -20,6 +20,16 @@ export default [
     },
   },
   {
+    files: ['**/*.svelte.ts'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+  },
+  {
     // Override or add rules here
     rules: {},
   },

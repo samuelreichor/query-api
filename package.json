@@ -95,7 +95,7 @@
     "svelte-check": "^4.3.3",
     "tslib": "^2.3.0",
     "tsx": "^4.20.3",
-    "typescript": "~5.8.2",
+    "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.0",
     "unbuild": "^3.6.1",
     "vite": "^6.0.0",
