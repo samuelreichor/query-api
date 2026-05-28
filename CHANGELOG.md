@@ -1,3 +1,10 @@
+## 0.8.1 (2026-05-28)
+
+### 🩹 Fixes
+
+- Fix a hydration issue with Craft CMS previews
+  ([b906bfa](https://github.com/samuelreichor/query-api/commit/b906bfa))
+
 ## 0.8.0 (2025-11-06)
 
 ### 🚀 Features
