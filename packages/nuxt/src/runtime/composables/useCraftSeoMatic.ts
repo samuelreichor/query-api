@@ -30,13 +30,12 @@ export type TransformedSeoData = {
   jsonLd: Record<string, unknown>
 }
 
-export interface CraftSeoMaticReturn<T>
-  extends Promise<{
-    data: Ref<T | null>
-    error: Ref<Error | null>
-    pending: Ref<boolean>
-    refresh: () => Promise<void>
-  }> {
+export interface CraftSeoMaticReturn<T> extends Promise<{
+  data: Ref<T | null>
+  error: Ref<Error | null>
+  pending: Ref<boolean>
+  refresh: () => Promise<void>
+}> {
   data: Ref<T | null>
   pending: Ref<boolean>
   refresh: () => Promise<void>

@@ -292,8 +292,7 @@ export interface CraftPageDefaultFields extends CraftEntryTypeDefaultFields {
   sectionHandle: string
 }
 
-export interface CraftPageRelationalFieldsWithMaxSetting
-  extends CraftEntryTypeRelationalFieldsWithMaxSetting {
+export interface CraftPageRelationalFieldsWithMaxSetting extends CraftEntryTypeRelationalFieldsWithMaxSetting {
   metadata: CraftEntryMeta
   title: string
   sectionHandle: string
