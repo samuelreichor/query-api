@@ -11,14 +11,26 @@ export function getCurrentSite(siteMap: CraftSites, url: string, mode: SiteDetec
 }
 
 export function getSiteUri(url: string, currentSite: CraftSite, mode: SiteDetectionMode) {
-  const normUrl = normalizeUrl(url)
-    .split('#')[0] // Remove hash fragment
-    .split('?')[0] // Remove query parameters
+  const normUrl = safeDecodeUrl(
+    normalizeUrl(url)
+      .split('#')[0] // Remove hash fragment
+      .split('?')[0], // Remove query parameters
+  )
     .replace(normalizeUrl(getSiteByMatching(currentSite, mode)), '') // Remove origin
     .replace(/^\/+/, '') // Remove leading slashes
     .replace(/\/+$/, '') // Remove trailing slashes
 
   return normUrl === '' ? '__home__' : normUrl
+}
+
+// Return the decoded URI so query builders encode it exactly once,
+// otherwise e.g. umlauts get double-encoded in the request URL
+function safeDecodeUrl(url: string) {
+  try {
+    return decodeURIComponent(url)
+  } catch {
+    return url
+  }
 }
 
 export function getSiteByMatching(currentSite: CraftSite, mode: SiteDetectionMode) {

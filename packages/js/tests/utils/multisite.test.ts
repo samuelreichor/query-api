@@ -101,14 +101,30 @@ describe('getSiteUri', () => {
     ).toBe('page')
   })
 
-  it('should correctly handle a URI-encoded URL', () => {
+  it('should decode a URI-encoded URL', () => {
     expect(
       getSiteUri(
         'https://google.com/some%20very%2Fstrange%2Dpath',
         mockCurrentSite,
         SITE_DETECTION_MODES.ORIGIN,
       ),
-    ).toBe('some%20very%2Fstrange%2Dpath')
+    ).toBe('some very/strange-path')
+  })
+
+  it('should decode umlauts instead of returning them percent-encoded', () => {
+    expect(
+      getSiteUri(
+        'https://google.com/w/dkfe-rechtsanw%C3%A4lte',
+        mockCurrentSite,
+        SITE_DETECTION_MODES.ORIGIN,
+      ),
+    ).toBe('w/dkfe-rechtsanwälte')
+  })
+
+  it('should return a malformed percent-encoded URL as-is', () => {
+    expect(
+      getSiteUri('https://google.com/50%-off', mockCurrentSite, SITE_DETECTION_MODES.ORIGIN),
+    ).toBe('50%-off')
   })
 
   it('should handle path-based URI when pathMatching is enabled', () => {
