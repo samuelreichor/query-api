@@ -1,5 +1,5 @@
 export const baseConfig = {
-  baseUrl: 'https://backend-craftcms.ddev.site:8443',
+  baseUrl: 'https://backend-craftcms.ddev.site',
   authToken: 'Bearer tyE9LViYm0HvcVbUErN1wwIa3qyeby1K',
   siteMap: [
     {
