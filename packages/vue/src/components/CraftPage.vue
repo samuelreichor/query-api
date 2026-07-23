@@ -14,6 +14,12 @@ const props = defineProps({
   },
 })
 
+// Framework integrations (e.g. @query-api/nuxt) can provide an error handler to
+// show their own error page. Throwing only works during SSR: Nuxt removes its
+// Vue error handler after hydration, so render-time throws are lost on
+// client-side navigation.
+const providedErrorHandler = inject<((error: Error) => void) | null>('craftPageErrorHandler', null)
+
 function handleError(code: '404', msg: string) {
   const pageKey = `Page${code}`
   if (props.config && props.config.pages[pageKey]) {
@@ -33,6 +39,12 @@ function handleError(code: '404', msg: string) {
   error.statusCode = Number(code)
   error.statusMessage = 'Page Not Found'
   error.fatal = true
+
+  if (providedErrorHandler) {
+    providedErrorHandler(error)
+    return () => null
+  }
+
   throw error
 }
 
