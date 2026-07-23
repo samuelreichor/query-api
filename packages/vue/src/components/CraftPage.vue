@@ -24,7 +24,16 @@ function handleError(code: '404', msg: string) {
     return props.config.pages['Error']
   }
 
-  throw new Error(msg)
+  // Attach h3-compatible properties so Nitro/Nuxt responds with 404 instead of 500
+  const error = new Error(msg) as Error & {
+    statusCode: number
+    statusMessage: string
+    fatal: boolean
+  }
+  error.statusCode = Number(code)
+  error.statusMessage = 'Page Not Found'
+  error.fatal = true
+  throw error
 }
 
 function getEntryTypeHandle() {
