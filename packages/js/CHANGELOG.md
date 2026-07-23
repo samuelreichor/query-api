@@ -1,3 +1,10 @@
+## 0.8.2 (2026-07-23)
+
+### 🩹 Fixes
+
+- **js:** Fix getSiteUri to decode URI-encoded paths and handle malformed URLs
+  ([7809ee2](https://github.com/samuelreichor/query-api/commit/7809ee2))
+
 ## 0.8.1 (2026-05-28)
 
 This was a version bump only for @query-api/js to align it with other projects, there were no code

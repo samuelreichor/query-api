@@ -1,3 +1,10 @@
+## 0.8.2 (2026-07-23)
+
+### 🩹 Fixes
+
+- **nuxt:** Provide errors for client side navigation
+  ([b0ea51d](https://github.com/samuelreichor/query-api/commit/b0ea51d))
+
 ## 0.8.1 (2026-05-28)
 
 ### 🩹 Fixes

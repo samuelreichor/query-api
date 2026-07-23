@@ -1,3 +1,12 @@
+## 0.8.2 (2026-07-23)
+
+### 🩹 Fixes
+
+- **nuxt:** Provide errors for client side navigation
+  ([b0ea51d](https://github.com/samuelreichor/query-api/commit/b0ea51d))
+- **vue:** Throw the error to let h3 handle the rest
+  ([7e9d71a](https://github.com/samuelreichor/query-api/commit/7e9d71a))
+
 ## 0.8.1 (2026-05-28)
 
 This was a version bump only for @query-api/vue to align it with other projects, there were no code
