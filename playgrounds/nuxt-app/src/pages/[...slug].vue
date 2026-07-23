@@ -3,6 +3,7 @@ import type { ContentMapping } from '@query-api/nuxt'
 import { CraftPage } from '@query-api/vue'
 import Home from '../templates/pages/home.vue'
 import News from '../templates/pages/news.vue'
+import NotFound from '../templates/pages/404.vue'
 
 import {
   useCraftCurrentSite,
@@ -19,6 +20,7 @@ const mapping: ContentMapping = {
   pages: {
     home: Home,
     'news:home': News,
+    Page404: NotFound,
   },
 }
 
