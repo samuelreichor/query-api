@@ -2,6 +2,24 @@ import React from 'react'
 import type { ContentMapping, CraftOptions, CraftPageEntry, HandledErrorCodes } from '../types'
 import { getCraftInstance } from '../functions/getInstance'
 
+/**
+ * Error thrown by CraftPage when no page component could be resolved and no
+ * error page is mapped. Carries the status code so framework integrations
+ * (e.g. @query-api/next) can show their own error page — the equivalent of
+ * the craftPageErrorHandler injection in @query-api/vue.
+ */
+export class CraftPageError extends Error {
+  statusCode: number
+  statusMessage: string
+
+  constructor(message: string, code: HandledErrorCodes) {
+    super(message)
+    this.name = 'CraftPageError'
+    this.statusCode = Number(code)
+    this.statusMessage = code === '404' ? 'Page Not Found' : 'Internal Server Error'
+  }
+}
+
 function handleError(
   contentMapping: ContentMapping,
   code: HandledErrorCodes,
@@ -16,10 +34,10 @@ function handleError(
   if (defaultError) {
     return defaultError
   }
-  throw new Error(message)
+  throw new CraftPageError(message, code)
 }
 
-function resolvePageComponent(
+export function resolvePageComponent(
   craftOptions: CraftOptions,
   content: CraftPageEntry,
 ): React.ElementType {
@@ -48,7 +66,7 @@ function resolvePageComponent(
   if (!section) {
     return handleError(
       contentMapping,
-      '500',
+      '404',
       'Section handle not found in queried data. Check your query or prevent it by defining an error page.',
     )
   }
