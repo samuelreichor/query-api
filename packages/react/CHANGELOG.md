@@ -1,3 +1,10 @@
+## 0.8.3 (2026-09-09)
+
+### 🩹 Fixes
+
+- **next:** Render 404 page for unresolvable content
+  ([56778b5](https://github.com/samuelreichor/query-api/commit/56778b5))
+
 ## 0.8.2 (2026-07-23)
 
 This was a version bump only for @query-api/react to align it with other projects, there were no

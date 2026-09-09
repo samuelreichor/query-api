@@ -1,3 +1,8 @@
+## 0.8.3 (2026-09-09)
+
+This was a version bump only for @query-api/js to align it with other projects, there were no code
+changes.
+
 ## 0.8.2 (2026-07-23)
 
 ### 🩹 Fixes
