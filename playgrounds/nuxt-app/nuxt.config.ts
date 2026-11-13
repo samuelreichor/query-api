@@ -26,6 +26,10 @@ export default defineNuxtConfig({
 
   modules: ['@query-api/nuxt'],
 
+  runtimeConfig: {
+    craftWebhookSecret: '',
+  },
+
   craftcms: {
     ...baseConfig,
     caching: false,
