@@ -51,3 +51,10 @@ export type ShortenedRelatedToParam =
   | ElementId
   | ShortenedComplexRelationObject
   | (string | ElementId | (ElementId | string)[] | ShortenedComplexRelationObject)[]
+
+export type CacheWebhookPayload = {
+  event: 'invalidate'
+  all: boolean
+  tags: string[]
+  timestamp: number
+}
