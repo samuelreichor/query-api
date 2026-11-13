@@ -1,3 +1,10 @@
+## 0.9.0 (2026-11-13)
+
+### 🚀 Features
+
+- **js:** Add CacheWebhookPayload type for Craft cache invalidation webhooks
+  ([9038e7b](https://github.com/samuelreichor/query-api/commit/9038e7b))
+
 ## 0.8.3 (2026-09-09)
 
 This was a version bump only for @query-api/js to align it with other projects, there were no code
